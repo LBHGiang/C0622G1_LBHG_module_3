@@ -40,16 +40,17 @@ from dat_hang;
 -- và danh sách sản phẩm được mua bởi các khách
 select kh.ten_khach_hang, sp.ten_san_pham
 from dat_hang dh 
-inner join khach_hang kh
+join khach_hang kh
 on dh.ma_khach_hang = kh.ma_khach_hang
-inner join chi_tiet_dat_hang ctdh
+join chi_tiet_dat_hang ctdh
 on dh.ma_dat_hang = ctdh.ma_dat_hang
-inner join san_pham sp
+join san_pham sp
 on ctdh.ma_san_pham = sp.ma_san_pham;
 
 -- Hiển thị tên những khách hàng không mua bất kỳ một sản phẩm nào
 select ten_khach_hang as ten_khach_hang_chua_mua_san_pham_nao
-from khach_hang left join dat_hang 
+from khach_hang
+left join dat_hang 
 on khach_hang.ma_khach_hang = dat_hang.ma_khach_hang
 where dat_hang.ma_khach_hang is null;
 
