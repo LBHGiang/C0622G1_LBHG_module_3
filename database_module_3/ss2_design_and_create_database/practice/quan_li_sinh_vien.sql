@@ -26,8 +26,8 @@ trang_thai Bit Default 1 );
 
 create table diem(
 ma_diem Int Not null  Primary key  auto_increment ,
-ma_mon_hoc Int Not Null Unique key ,
-ma_hoc_sinh Int Not null Unique key ,
+ma_mon_hoc Int Not Null ,
+ma_hoc_sinh Int Not null ,
 diem Float Default 0 check (diem between 0 and 100) ,
 thoi_gian Tinyint Default 1,
 foreign key (ma_mon_hoc) references mon_hoc (ma_mon_hoc),
@@ -38,8 +38,3 @@ select * from lop;
 select * from hoc_sinh;
 select * from mon_hoc;
 select * from diem;
-
-
-
-
-	
