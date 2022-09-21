@@ -1,0 +1,46 @@
+
+body {
+    background: url("https://tinhocdaiviet.com/wp-content/uploads/Trai-Nghiem-The-Gioi-Trong-Harry-Potter-Voi-Hogwarts-Legacy-2.jpg") no-repeat center/cover;
+    height: 100vh;
+    width: 100vw;
+}
+
+h1 {
+    /*background: greenyellow;*/
+    font-family: Magical Me font, serif;
+    font-size: 5em;
+    color: aliceblue;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+#vi_tri_danh_sach{
+    /*background: greenyellow;*/
+    float: right;
+    width: 30%;
+    height: 100%;
+}
+
+#muc_luc_danh_sach{
+    /*background: antiquewhite;*/
+    text-align: left;
+    color: white;
+    font-size: 3em;
+    margin-bottom: 0;
+    margin-top: 0;
+    margin-left: -30px;
+
+}
+
+
+.phan_tu_danh_sach, h5 {
+    /*background: darkred;*/
+    text-align: left;
+    color: white;
+    font-size: 1.5em;
+    line-height: 0px;
+}
+
+a {
+    text-decoration: none;
+}
