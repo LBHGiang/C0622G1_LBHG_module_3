@@ -1,0 +1,82 @@
+* {
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 0px;
+}
+
+
+body {
+    font-family: Arial, Tahoma, serif;
+    font-size: 1em;
+}
+
+#main {
+    background: slategrey;
+    width: 100%;
+    padding: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#head {
+    background: white;
+    width: 100%;
+    height: 50px;
+    position: fixed;
+    top: 0;
+
+}
+
+
+#left, #right {
+    width: 20%;
+    height: 100vh;
+    background-color: inherit;
+    position: fixed;
+    top: 50px;
+
+    border: 1px solid black;
+}
+
+#left {
+    float: left;
+}
+
+#right {
+    float: right;
+    right: 0px;
+}
+
+
+#content {
+    margin-left: 25%;
+    width: 50%;
+    min-height: 1500px;
+    float: left;
+    top: 45px;
+    right: 280px;
+    background: inherit;
+
+    border: 1px solid black;
+}
+
+#head > div {
+    position: relative;
+    width: 33%;
+    height: 50px;
+    float: left;
+}
+
+.head1 li, .head2 li, .head3 li {
+    float: left;
+    list-style: none;
+    margin: 5px;
+    padding:5px;
+}
+
+
+
+
+
+
+
