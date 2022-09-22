@@ -10,8 +10,9 @@ body {
     font-size: 1em;
 }
 
+html { background: antiquewhite;}
 #main {
-    background: slategrey;
+    background: antiquewhite;
     width: 100%;
     padding: 0;
     margin-left: auto;
@@ -35,7 +36,7 @@ body {
     position: fixed;
     top: 50px;
 
-    border: 1px solid black;
+    /*border: 1px solid black;*/
 }
 
 #left {
@@ -53,11 +54,11 @@ body {
     width: 50%;
     min-height: 1500px;
     float: left;
-    top: 45px;
+    margin-top: 100px;
     right: 280px;
     background: inherit;
 
-    border: 1px solid black;
+    /*border: 1px solid black;*/
 }
 
 #head > div {
@@ -67,16 +68,38 @@ body {
     float: left;
 }
 
-.head1 li, .head2 li, .head3 li {
-    float: left;
+.head1 li,.head2 li, .head3 li{
     list-style: none;
-    margin: 5px;
-    padding:5px;
+    margin: 0px;
+    padding:17.5px;
+    height: 45px;
+}
+.head3 li {
+    float: right;
+    width: 15px;
+}
+.head1 li {
+    float: left;
+    width: 10px;
 }
 
 
+.head2 li {
+    float: left;
+    width: 20%;
+}
 
 
+#ul_left li{
+    list-style: none;
+    width:100%;
+    height: 50px;
+    padding:0 20px;
+    line-height: 50px;
+    cursor:pointer;
+}
 
-
-
+#ul_left li a{
+    text-decoration:none;
+    color: black;
+}
