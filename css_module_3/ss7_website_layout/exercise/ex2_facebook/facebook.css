@@ -10,7 +10,10 @@ body {
     font-size: 1em;
 }
 
-html { background: antiquewhite;}
+html {
+    background: antiquewhite;
+}
+
 #main {
     background: antiquewhite;
     width: 100%;
@@ -68,38 +71,40 @@ html { background: antiquewhite;}
     float: left;
 }
 
-.head1 li,.head2 li, .head3 li{
+.head_left li, .head_mid li, .head_right li {
     list-style: none;
     margin: 0px;
-    padding:17.5px;
+    padding: 17.5px;
     height: 45px;
 }
-.head3 li {
+
+.head_right li {
     float: right;
     width: 15px;
 }
-.head1 li {
+
+.head_left li {
     float: left;
     width: 10px;
 }
 
 
-.head2 li {
+.head_mid li {
     float: left;
     width: 20%;
 }
 
 
-#ul_left li{
+#ul_left li {
     list-style: none;
-    width:100%;
+    width: 100%;
     height: 50px;
-    padding:0 20px;
+    padding: 0 20px;
     line-height: 50px;
-    cursor:pointer;
+    cursor: pointer;
 }
 
-#ul_left li a{
-    text-decoration:none;
+#ul_left li a {
+    text-decoration: none;
     color: black;
 }

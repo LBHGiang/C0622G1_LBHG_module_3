@@ -14,14 +14,14 @@ h1 {
     vertical-align: bottom;
 }
 
-#vi_tri_danh_sach{
+#main{
     /*background: greenyellow;*/
     float: right;
     width: 30%;
     height: 100%;
 }
 
-#muc_luc_danh_sach{
+#list_title{
     /*background: antiquewhite;*/
     text-align: left;
     color: white;
@@ -33,7 +33,7 @@ h1 {
 }
 
 
-.phan_tu_danh_sach, h5 {
+.list_element, h5 {
     /*background: darkred;*/
     text-align: left;
     color: white;
