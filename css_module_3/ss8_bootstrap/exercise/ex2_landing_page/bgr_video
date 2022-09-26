@@ -1,0 +1,5 @@
+<div class="col-12 vw-100">
+    <video playsinline controls autoplay muted>
+        <source src="https://eus-streaming-video-rt-microsoft-com.akamaized.net/bd1eda48-4f5b-42f7-9ffd-bf10c7593861/3b66781f-b1b7-41ec-84ff-abbc209f2520.mp4">
+    </video>
+</div>

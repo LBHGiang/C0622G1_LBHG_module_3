@@ -2,27 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d61222b1-1f43-4520-9cfe-56d9cda23d00" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/css_module_3/ss6_css/exercise/ex1_embedding_css_in_html/embedding_css_inline.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css_module_3/ss6_css/exercise/ex1_embedding_css_in_html/embedding_css_internal.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css_module_3/ss6_css/exercise/ex2_format_text_with_css/introduction_to_vietnam.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css_module_3/ss7_website_layout/exercise/ex2_facebook/bootstrap.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css_module_3/ss8_bootstrap/exercise/ex2_landing_page/landing_page.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css_module_3/ss8_bootstrap/exercise/ex2_landing_page/landing_page.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css_module_3/ss8_bootstrap/exercise/ex2_landing_page/microsoft_icon.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css_module_3/ss8_bootstrap/exercise/exercise_1_create_simple_gallery/gallery.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/css_module_3/ss8_bootstrap/exercise/exercise_1_create_simple_gallery/gallery.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css_module_3/.idea/css_module_3.iml" beforeDir="false" afterPath="$PROJECT_DIR$/css_module_3/.idea/css_module_3.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css_module_3/ss6_css/exercise/ex1_embedding_css_in_html/embedding_css_in_html.html" beforeDir="false" afterPath="$PROJECT_DIR$/css_module_3/ss6_css/exercise/ex1_embedding_css_in_html/embedding_css_external.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css_module_3/ss6_css/exercise/ex1_embedding_css_in_html/ex1.css" beforeDir="false" afterPath="$PROJECT_DIR$/css_module_3/ss6_css/exercise/ex1_embedding_css_in_html/ex1_external.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css_module_3/ss6_css/exercise/ex2_format_text_with_css.html" beforeDir="false" afterPath="$PROJECT_DIR$/css_module_3/ss6_css/exercise/ex2_format_text_with_css/introduction_to_vietnam.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css_module_3/ss6_css/exercise/ex3_create_page_read_story/ex3_page_read_story_css.css" beforeDir="false" afterPath="$PROJECT_DIR$/css_module_3/ss6_css/exercise/ex3_create_page_read_story/ex3_page_read_story_css.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css_module_3/ss6_css/exercise/ex3_create_page_read_story/ex3_page_read_story_html.html" beforeDir="false" afterPath="$PROJECT_DIR$/css_module_3/ss6_css/exercise/ex3_create_page_read_story/ex3_page_read_story_html.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css_module_3/ss7_website_layout/exercise/ex1_create_layout/layout.html" beforeDir="false" afterPath="$PROJECT_DIR$/css_module_3/ss7_website_layout/exercise/ex1_create_layout/layout.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css_module_3/ss7_website_layout/exercise/ex2_facebook/facebook.css" beforeDir="false" afterPath="$PROJECT_DIR$/css_module_3/ss7_website_layout/exercise/ex2_facebook/facebook.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css_module_3/ss7_website_layout/exercise/ex2_facebook/facebook.html" beforeDir="false" afterPath="$PROJECT_DIR$/css_module_3/ss7_website_layout/exercise/ex2_facebook/facebook.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css_module_3/ss7_website_layout/exercise/ex4_web_xem_phim_hoat_hinh/ex4_web_hoat_hinh.html" beforeDir="false" afterPath="$PROJECT_DIR$/css_module_3/ss7_website_layout/exercise/ex4_web_xem_phim_hoat_hinh/ex4_web_hoat_hinh.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/css_module_3/ss7_website_layout/practice/menu_ngang.html" beforeDir="false" afterPath="$PROJECT_DIR$/css_module_3/ss7_website_layout/practice/menu_ngang.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/css_module_3/ss8_bootstrap/exercise/ex2_landing_page/bgr_video" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css_module_3/ss8_bootstrap/exercise/exercise_1_create_simple_gallery/gallery.css" beforeDir="false" afterPath="$PROJECT_DIR$/css_module_3/ss8_bootstrap/exercise/ex1_create_simple_gallery/gallery.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/css_module_3/ss8_bootstrap/exercise/exercise_1_create_simple_gallery/gallery.html" beforeDir="false" afterPath="$PROJECT_DIR$/css_module_3/ss8_bootstrap/exercise/ex1_create_simple_gallery/gallery.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_3/out/production/module_3/baiTapNhom.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/module_3/src/ss1/qdw.java" beforeDir="false" afterPath="$PROJECT_DIR$/module_3/src/ss1/qdw.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,16 +24,12 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "E:/codegym/MODULE3/C0622G1_LBHG_module_3/css_module_3",
-    "vue.rearranger.settings.migration": "true"
-  }
-}]]></component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/module_3" />
+  </component>
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -63,11 +43,12 @@
       <workItem from="1663766249394" duration="32000" />
       <workItem from="1663929795836" duration="307000" />
       <workItem from="1663939772330" duration="3175000" />
+      <workItem from="1664028859602" duration="49000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -79,5 +60,12 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="410" y="59" key="FileChooserDialogImpl" timestamp="1664028909469">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="410" y="59" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1664028909469" />
   </component>
 </project>
