@@ -6,23 +6,31 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "CalculatorServlet", value = "calculator")
+@WebServlet(name = "CalculatorServlet", value = "/calculators")
 public class CalculatorServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-    }
-
-    protected void doGet(HttpServletRequest request, HttpServletResponse response){
         double operand1 = Double.parseDouble(request.getParameter("operand1"));
         double operand2 = Double.parseDouble(request.getParameter("operand2"));
         String operator = request.getParameter("operator");
-        double result = 0;
+        String result = "";
         try {
-            result = Calculate.calculate(operand1, operand2, operator);
+            result = String.format("%s %s %s = %s",operand1,operand2,operator,Calculate.calculate(operand1, operand2, operator));
         } catch (DivideBy0Exception e) {
-            request.setAttribute("message", e);
+            result = "Lỗi: Không thể chia cho 0";
         }
-        request.setAttribute("message", "Result: " + operand1 + operator + operand2 + "=" + result);
+        request.setAttribute("message", result);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("calculator2.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) {
+        request.setAttribute("message", "Mời bạn nhập phép tính!");
         RequestDispatcher dispatcher = request.getRequestDispatcher("calculator.jsp");
         try {
             dispatcher.forward(request, response);

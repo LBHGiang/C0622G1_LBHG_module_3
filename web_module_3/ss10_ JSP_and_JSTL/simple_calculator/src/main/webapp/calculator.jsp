@@ -13,7 +13,7 @@
 </head>
 <body>
 <h1>Simple Calculator</h1>
-<form>
+<form method="post">
     <fieldset>
         <legend>Calculator</legend>
         <table>

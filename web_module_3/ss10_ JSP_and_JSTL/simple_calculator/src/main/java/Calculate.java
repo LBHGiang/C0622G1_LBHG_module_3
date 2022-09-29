@@ -1,7 +1,7 @@
 public class Calculate {
     public static double calculate(double number1, double number2, String operator) throws DivideBy0Exception {
         double result = 0;
-        if (operator.equals("/")&&number2==0){
+        if (operator.equals("/") && number2 == 0) {
             throw new DivideBy0Exception("Lỗi: Không thể chia cho 0");
         }
         switch (operator) {
