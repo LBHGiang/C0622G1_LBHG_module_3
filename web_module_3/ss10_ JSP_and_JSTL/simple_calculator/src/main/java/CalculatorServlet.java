@@ -12,30 +12,16 @@ public class CalculatorServlet extends HttpServlet {
 
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        double result = 0;
+    protected void doGet(HttpServletRequest request, HttpServletResponse response){
         double operand1 = Double.parseDouble(request.getParameter("operand1"));
         double operand2 = Double.parseDouble(request.getParameter("operand2"));
         String operator = request.getParameter("operator");
-        if (operator.equals("/") && operand2 == 0) {
-            request.setAttribute("message", "Không thể chia cho số 0");
-        } else {
-            switch (operator) {
-                default:
-                    result = operand1 + operand2;
-                    break;
-                case "-":
-                    result = operand1 - operand2;
-                    break;
-                case "*":
-                    result = operand1 * operand2;
-                    break;
-                case "/":
-                    result = operand1 / operand2;
-                    break;
-            }
+        double result = 0;
+        try {
+            result = Calculate.calculate(operand1, operand2, operator);
+        } catch (DivideBy0Exception e) {
+            request.setAttribute("message", e);
         }
-
         request.setAttribute("message", "Result: " + operand1 + operator + operand2 + "=" + result);
         RequestDispatcher dispatcher = request.getRequestDispatcher("calculator.jsp");
         try {
