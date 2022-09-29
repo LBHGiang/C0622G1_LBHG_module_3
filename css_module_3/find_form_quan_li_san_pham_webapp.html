@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="create_animated_film_website.css">
+</head>
+<body>
+<h1>Tìm kiếm sản phẩm</h1>
+
+<p>
+    <a href="/products">Quay lại Danh sách sản phẩm</a>
+</p>
+<form method="post">
+    <fieldset>
+        <legend>Tìm theo:</legend>
+        <input type="radio" name="option" value="id" onclick="openInput(this.value)">ID:
+        <input type="text" name="id" id="id"></br>
+        <input type="radio" name="option" value="name" onclick="openInput(this.value)">Tên:
+        <input type="text" name="name" id="name"></br>
+        <input type="radio" name="option" value="Price" onclick="openInput(this.value)">Giá: From
+        <input type="number" name="minPrice" id="minPrice"> To
+        <input type="number" name="maxPrice" id="maxPrice"></br>
+        <input type="radio" name="option" value="producer" onclick="openInput(this.value)">Nhà sản xuất:
+        <input type="text" name="producer" id="producer"></br>
+
+        <input type="submit" value="Find product">
+
+    </fieldset>
+</form>
+
+
+<table border="1">
+    <tr>
+        <td>Tên</td>
+        <td>Giá</td>
+        <td>Mô tả</td>
+        <td>Nhà sản xuất</td>
+        <td>Chỉnh sửa</td>
+        <td>Xóa</td>
+    </tr>
+    <c:forEach items='${requestScope["products"]}' var="product">
+        <tr>
+            <td><a href="/products?action=view&id=${product.getId()}">${product.getName()}</a></td>
+            <td>${product.getPrice()}</td>
+            <td>${product.getDescription()}</td>
+            <td>${product.getProducer()}</td>
+            <td><a href="/products?action=edit&id=${product.getId()}">Chỉnh sửa</a></td>
+            <td><a href="/products?action=delete&id=${product.getId()}">Xóa</a></td>
+        </tr>
+    </c:forEach>
+</table>
+</body>
+<script>
+    let inputId = ["id", "name", "minPrice", "maxPrice", "producer"];
+
+    function openInput(value) {
+
+        for (let element of inputId) {
+            document.getElementById(element).disabled = !element.includes(value);
+        }
+    }
+
+</script>
+</html>
+
