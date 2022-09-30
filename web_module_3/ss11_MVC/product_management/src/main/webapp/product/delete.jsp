@@ -22,19 +22,19 @@
         <table>
             <tr>
                 <td>Tên: </td>
-                <td>${requestScope["product"].getName()}</td>
+                <td>${product.getName()}</td>
             </tr>
             <tr>
                 <td>Giá: </td>
-                <td>${requestScope["product"].getPrice()}</td>
+                <td>${product.getPrice()}</td>
             </tr>
             <tr>
                 <td>Mô tả: </td>
-                <td>${requestScope["product"].getDescription()}</td>
+                <td>${product.getDescription()}</td>
             </tr>
             <tr>
                 <td>Nhà sản xuất: </td>
-                <td>${requestScope["product"].getProducer()}</td>
+                <td>${product.getProducer()}</td>
             </tr>
             <tr>
                 <td><input type="submit" value="Delete product"></td>

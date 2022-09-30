@@ -26,9 +26,9 @@
         <td>Chỉnh sửa</td>
         <td>Xóa</td>
     </tr>
-    <c:forEach items='${requestScope["products"]}' var="product">
+    <c:forEach items="${products}" var="product">
         <tr>
-            <td><a href="/products?action=view&id=${product.getId()}">${product.getName()}</a></td>
+            <td><a href="/products?action=view&id=${product.id}">${product.getName()}</a></td>
             <td>${product.getPrice()}</td>
             <td>${product.getDescription()}</td>
             <td>${product.getProducer()}</td>

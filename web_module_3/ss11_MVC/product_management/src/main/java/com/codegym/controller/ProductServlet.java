@@ -2,7 +2,7 @@ package com.codegym.controller;
 
 import com.codegym.model.Product;
 import com.codegym.service.IProductService;
-import com.codegym.service.ProductService;
+import com.codegym.service.impl.ProductService;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,6 +19,9 @@ public class ProductServlet extends HttpServlet {
     private IProductService productService = new ProductService();
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+
         String action = request.getParameter("action");
         if (action == null) {
             action = "";
@@ -44,6 +47,9 @@ public class ProductServlet extends HttpServlet {
 
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.setCharacterEncoding("UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
+
         String action = request.getParameter("action");
         if (action == null) {
             action = "";
@@ -135,9 +141,7 @@ public class ProductServlet extends HttpServlet {
         }
         try {
             dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
+        } catch (ServletException | IOException e) {
             e.printStackTrace();
         }
     }

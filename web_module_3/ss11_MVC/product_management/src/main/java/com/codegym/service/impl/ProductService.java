@@ -1,6 +1,7 @@
-package com.codegym.service;
+package com.codegym.service.impl;
 
 import com.codegym.model.Product;
+import com.codegym.service.IProductService;
 
 import java.util.ArrayList;
 import java.util.HashMap;

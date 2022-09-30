@@ -13,8 +13,8 @@
 <body>
 <h1>Chỉnh sửa sản phẩm</h1>
 <p>
-    <c:if test='${requestScope["message"] != null}'>
-        <span class="message">${requestScope["message"]}</span>
+    <c:if test="${message != null}">
+        <span class="message">${message}</span>
     </c:if>
 </p>
 <p>
@@ -25,20 +25,20 @@
         <legend>Thông tin sản phẩm</legend>
         <table>
             <tr>
-                <td>Tên: </td>
-                <td><input type="text" name="name" id="name" value="${requestScope["product"].getName()}"></td>
+                <td>Tên:</td>
+                <td><input type="text" name="name" id="name" value="${product.getName()}"></td>
             </tr>
             <tr>
-                <td>Giá: </td>
-                <td><input type="number" name="price" id="price" value="${requestScope["product"].getPrice()}"></td>
+                <td>Giá:</td>
+                <td><input type="number" name="price" id="price" value="${product.getPrice()}"></td>
             </tr>
             <tr>
-                <td>Mô tả: </td>
-                <td><input type="text" name="description" id="description" value="${requestScope["product"].getDescription()}"></td>
+                <td>Mô tả:</td>
+                <td><input type="text" name="description" id="description" value="${product.getDescription()}"></td>
             </tr>
             <tr>
-                <td>Nhà sản xuất: </td>
-                <td><input type="text" name="producer" id="producer" value="${requestScope["product"].getProducer()}"></td>
+                <td>Nhà sản xuất:</td>
+                <td><input type="text" name="producer" id="producer" value="${product.getProducer()}"></td>
             </tr>
             <tr>
                 <td></td>

@@ -62,8 +62,8 @@
     </fieldset>
 </form>
 <h3>
-    <c:if test='${requestScope["message"] != null}'>
-        <span class="message">${requestScope["message"]}</span>
+    <c:if test="${message != null}">
+        <span class="message">${message}</span>
     </c:if>
 </h3>
 <table border="1">
@@ -75,7 +75,7 @@
         <td>Chỉnh sửa</td>
         <td>Xóa</td>
     </tr>
-    <c:forEach items='${requestScope["products"]}' var="product">
+    <c:forEach items="${products}" var="product">
         <tr>
             <td><a href="/products?action=view&id=${product.getId()}">${product.getName()}</a></td>
             <td>${product.getPrice()}</td>
