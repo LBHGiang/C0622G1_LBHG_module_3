@@ -22,7 +22,7 @@
         <table>
             <tr>
                 <td>Tên: </td>
-                <td>${product.getName}</td>
+                <td>${product.getName()}</td>
             </tr>
             <tr>
                 <td>Giá: </td>

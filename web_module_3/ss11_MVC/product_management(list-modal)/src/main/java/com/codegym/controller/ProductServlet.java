@@ -77,7 +77,6 @@ public class ProductServlet extends HttpServlet {
 
     private void listCustomers(HttpServletRequest request, HttpServletResponse response) {
         List<Product> products = this.productService.findAll();
-
         request.setAttribute("products", products);
         RequestDispatcher dispatcher = request.getRequestDispatcher("product/list.jsp");
         try {
@@ -246,37 +245,12 @@ public class ProductServlet extends HttpServlet {
     }
 
     private void findCustomer(HttpServletRequest request, HttpServletResponse response) {
-        List<Product> products = new ArrayList<>();
-        String option = request.getParameter("option");
-        switch (option) {
-            case "id":
-                int id = Integer.parseInt(request.getParameter("id"));
-                Product product = this.productService.findById(id);
-                if (product != null) {
-                    products.add(product);
-                }
-                break;
-            case "name":
-                String name = request.getParameter("name");
-                products = this.productService.findByName(name);
-                break;
-            case "Price":
-                double minPrice = Double.parseDouble(request.getParameter("minPrice"));
-                double maxPrice = Double.parseDouble(request.getParameter("maxPrice"));
-                products = this.productService.findByPrice(minPrice, maxPrice);
-                break;
-            case "producer":
-                String producer = request.getParameter("producer");
-                products = this.productService.findByProducer(producer);
-                break;
-        }
+        List<Product> products;
+        String name = request.getParameter("name");
+        products = this.productService.findByName(name);
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("product/find.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("product/list.jsp");
         request.setAttribute("products", products);
-        if (products.size() == 0) {
-            request.setAttribute("message", "Không tìm thấy sản phẩm nào!");
-        } else
-            request.setAttribute("message", "Sản phẩm được tìm thấy:");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
