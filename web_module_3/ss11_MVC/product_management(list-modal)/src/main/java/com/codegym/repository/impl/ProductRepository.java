@@ -8,9 +8,10 @@ import java.util.List;
 
 public class ProductRepository implements IProductRepository {
 
-    private static List<Product> products = new ArrayList<>();
+    private static List<Product> products;
 
     static {
+        products = new ArrayList<>();
         products.add(new Product(1, "Bàn phím", 10000, "mô tả", "A1"));
         products.add(new Product(2, "Camera", 50000, "mô tả", "B2"));
         products.add(new Product(3, "Lót chuột", 25000, "mô tả", "D6"));

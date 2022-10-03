@@ -61,7 +61,7 @@ public class ProductServlet extends HttpServlet {
                 showEditForm(request, response);
                 break;
             case "delete":
-                showDeleteForm(request, response);
+                deleteCustomer(request, response);
                 break;
             case "view":
                 viewCustomer(request, response);
@@ -154,37 +154,16 @@ public class ProductServlet extends HttpServlet {
         Product product = this.productService.findById(id);
         RequestDispatcher dispatcher;
         if (product == null) {
-            dispatcher = request.getRequestDispatcher("error-404.jsp");
+            request.setAttribute("message", "Chỉnh sửa thất bại, không tìm thấy sản phẩm trong danh sách!");
         } else {
             product.setName(name);
             product.setPrice(price);
             product.setDescription(description);
             product.setProducer(producer);
-
             this.productService.update(id, product);
-            request.setAttribute("product", product);
-            request.setAttribute("message", "Thông tin sản phẩm được cập nhật thành công!");
-            dispatcher = request.getRequestDispatcher("product/edit.jsp");
+            request.setAttribute("message", "Cập nhật thông tin sản phẩm thành công!");
         }
-        try {
-            dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void showDeleteForm(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("id"));
-        Product product = this.productService.findById(id);
-        RequestDispatcher dispatcher;
-        if (product == null) {
-            dispatcher = request.getRequestDispatcher("error-404.jsp");
-        } else {
-            request.setAttribute("product", product);
-            dispatcher = request.getRequestDispatcher("product/delete.jsp");
-        }
+        dispatcher = request.getRequestDispatcher("product/list.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -197,16 +176,19 @@ public class ProductServlet extends HttpServlet {
     private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         Product product = this.productService.findById(id);
-        RequestDispatcher dispatcher;
         if (product == null) {
-            dispatcher = request.getRequestDispatcher("error-404.jsp");
+            request.setAttribute("message", "Xóa sản phẩm thất bại, không tìm thấy sản phẩm trong danh sách!");
         } else {
             this.productService.remove(id);
-            try {
-                response.sendRedirect("/products");
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+            request.setAttribute("message", "Xóa sản phẩm thành công!");
+        }
+        RequestDispatcher dispatcher = request.getRequestDispatcher("product/list.jsp");
+        try {
+            dispatcher.forward(request, response);
+        } catch (ServletException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 
