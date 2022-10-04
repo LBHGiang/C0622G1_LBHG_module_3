@@ -9,13 +9,15 @@
 <html>
 <head>
     <title>Thông tin sản phẩm</title>
+    <link rel="stylesheet" href="bootstrap520/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="datatables/css/dataTables.bootstrap5.min.css"/>
 </head>
 <body>
-<h1>Thông tin chi tiết sản phẩm</h1>
+<h1 style="text-align: center; color: blue">Thông tin chi tiết sản phẩm</h1>
 <p>
-    <a href="/products">Quay lại Danh sách sản phẩm</a>
+   <a href="/products" class="btn btn-primary" style="margin-left: 25%; margin-top: 5%">Quay lại Danh sách sản phẩm</a>
 </p>
-<table>
+<table class="table table-striped" style="width: 50%; margin-left: 25%">
     <tr>
         <td>Tên:</td>
         <td>${product.getName()}</td>

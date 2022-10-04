@@ -28,19 +28,19 @@ public class ProductServlet extends HttpServlet {
         }
         switch (action) {
             case "create":
-                createCustomer(request, response);
+                createProduct(request, response);
                 break;
-            case "edit":
-                updateCustomer(request, response);
+            case "update":
+                updateProduct(request, response);
                 break;
             case "delete":
-                deleteCustomer(request, response);
+                deleteProduct(request, response);
                 break;
             case "find":
-                findCustomer(request, response);
+                findProduct(request, response);
                 break;
             default:
-                listCustomers(request, response);
+                listProducts(request, response);
                 break;
         }
     }
@@ -57,29 +57,18 @@ public class ProductServlet extends HttpServlet {
             case "create":
                 showCreateForm(request, response);
                 break;
-            case "edit":
-                showEditForm(request, response);
-                break;
-            case "delete":
-                deleteCustomer(request, response);
-                break;
             case "view":
-                viewCustomer(request, response);
-                break;
-            case "find":
-                showFindForm(request, response);
+                viewProduct(request, response);
                 break;
             default:
-                listCustomers(request, response);
+                listProducts(request, response);
                 break;
         }
     }
 
-    private void listCustomers(HttpServletRequest request, HttpServletResponse response) {
+    private void listProducts(HttpServletRequest request, HttpServletResponse response) {
         List<Product> products = this.productService.findAll();
-//        String msg = request.getParameter("message");
         request.setAttribute("products", products);
-//        request.setAttribute("message", msg);
         RequestDispatcher dispatcher = request.getRequestDispatcher("product/list.jsp");
         try {
             dispatcher.forward(request, response);
@@ -101,7 +90,7 @@ public class ProductServlet extends HttpServlet {
         }
     }
 
-    private void createCustomer(HttpServletRequest request, HttpServletResponse response) {
+    private void createProduct(HttpServletRequest request, HttpServletResponse response) {
         List<Product> products = this.productService.findAll();
         int maxId = products.get(0).getId();
         for (Product product : products
@@ -129,24 +118,7 @@ public class ProductServlet extends HttpServlet {
         }
     }
 
-    private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
-        int id = Integer.parseInt(request.getParameter("id"));
-        Product product = this.productService.findById(id);
-        RequestDispatcher dispatcher;
-        if (product == null) {
-            dispatcher = request.getRequestDispatcher("error-404.jsp");
-        } else {
-            request.setAttribute("product", product);
-            dispatcher = request.getRequestDispatcher("product/edit.jsp");
-        }
-        try {
-            dispatcher.forward(request, response);
-        } catch (ServletException | IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void updateCustomer(HttpServletRequest request, HttpServletResponse response) {
+    private void updateProduct(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         double price = Double.parseDouble(request.getParameter("price"));
@@ -165,17 +137,10 @@ public class ProductServlet extends HttpServlet {
             this.productService.update(id, product);
             request.setAttribute("message", "Cập nhật thông tin sản phẩm thành công!");
         }
-        dispatcher = request.getRequestDispatcher("product/list.jsp");
-        try {
-            dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        listProducts(request,response);
     }
 
-    private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) {
+    private void deleteProduct(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         Product product = this.productService.findById(id);
         if (product == null) {
@@ -184,10 +149,10 @@ public class ProductServlet extends HttpServlet {
             this.productService.remove(id);
             request.setAttribute("message", "Xóa sản phẩm thành công!");
         }
-        listCustomers(request,response);
+        listProducts(request,response);
     }
 
-    private void viewCustomer(HttpServletRequest request, HttpServletResponse response) {
+    private void viewProduct(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
         Product product = this.productService.findById(id);
         RequestDispatcher dispatcher;
@@ -206,22 +171,7 @@ public class ProductServlet extends HttpServlet {
         }
     }
 
-    private void showFindForm(HttpServletRequest request, HttpServletResponse response) {
-        List<Product> products = this.productService.findAll();
-        request.setAttribute("products", products);
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("product/find.jsp");
-        try {
-            dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
-    private void findCustomer(HttpServletRequest request, HttpServletResponse response) {
+    private void findProduct(HttpServletRequest request, HttpServletResponse response) {
         List<Product> products;
         String name = request.getParameter("name");
         products = this.productService.findByName(name);
@@ -236,4 +186,36 @@ public class ProductServlet extends HttpServlet {
             e.printStackTrace();
         }
     }
+
+    //    private void showFindForm(HttpServletRequest request, HttpServletResponse response) {
+//        List<Product> products = this.productService.findAll();
+//        request.setAttribute("products", products);
+//
+//        RequestDispatcher dispatcher = request.getRequestDispatcher("product/find.jsp");
+//        try {
+//            dispatcher.forward(request, response);
+//        } catch (ServletException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//
+//    }
+
+//    private void showEditForm(HttpServletRequest request, HttpServletResponse response) {
+//        int id = Integer.parseInt(request.getParameter("id"));
+//        Product product = this.productService.findById(id);
+//        RequestDispatcher dispatcher;
+//        if (product == null) {
+//            dispatcher = request.getRequestDispatcher("error-404.jsp");
+//        } else {
+//            request.setAttribute("product", product);
+//            dispatcher = request.getRequestDispatcher("product/edit.jsp");
+//        }
+//        try {
+//            dispatcher.forward(request, response);
+//        } catch (ServletException | IOException e) {
+//            e.printStackTrace();
+//        }
+//    }
 }
