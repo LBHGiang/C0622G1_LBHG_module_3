@@ -77,7 +77,9 @@ public class ProductServlet extends HttpServlet {
 
     private void listCustomers(HttpServletRequest request, HttpServletResponse response) {
         List<Product> products = this.productService.findAll();
+//        String msg = request.getParameter("message");
         request.setAttribute("products", products);
+//        request.setAttribute("message", msg);
         RequestDispatcher dispatcher = request.getRequestDispatcher("product/list.jsp");
         try {
             dispatcher.forward(request, response);
@@ -177,19 +179,12 @@ public class ProductServlet extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         Product product = this.productService.findById(id);
         if (product == null) {
-            request.setAttribute("message", "Xóa sản phẩm thất bại, không tìm thấy sản phẩm trong danh sách!");
+            request.setAttribute("message", "Xóa thất bại, không tìm thấy sản phẩm trong danh sách!");
         } else {
             this.productService.remove(id);
             request.setAttribute("message", "Xóa sản phẩm thành công!");
         }
-        RequestDispatcher dispatcher = request.getRequestDispatcher("product/list.jsp");
-        try {
-            dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        listCustomers(request,response);
     }
 
     private void viewCustomer(HttpServletRequest request, HttpServletResponse response) {

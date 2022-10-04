@@ -16,6 +16,22 @@
     <link rel="stylesheet" href="datatables/css/dataTables.bootstrap5.min.css"/>
 </head>
 <body>
+<c:if test="${message!=null}">
+    <div aria-live="polite" aria-atomic="true" class="position-relative">
+        <div class="toast fade show" style="margin: 20px auto" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header">
+                <svg class="bd-placeholder-img rounded me-2" width="20" height="20" xmlns="http://www.w3.org/2000/svg"
+                     aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+                    <rect width="100%" height="100%" fill="#007aff"></rect>
+                </svg>
+                <strong class="me-auto"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">Thông báo:</span></span></strong>
+                <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Đóng"></button>
+            </div>
+            <div class="toast-body"><span style="vertical-align: inherit;"><span style="vertical-align: inherit;">
+                   <strong> ${message}</strong> </span></span></div>
+        </div>
+    </div>
+</c:if>
 <h1 style="text-align: center; color: blue">Danh sách sản phẩm</h1>
 
 <form action="/products?action=find" method="post">
@@ -23,10 +39,6 @@
     <input type="submit" value="Tìm kiếm" class="btn btn-primary">
     <input type="text" name="name" id="searchName" placeholder="Nhập thông tin cần tìm kiếm" size="30">
 </form>
-
-<c:if test="${message != null}">
-    <span class="message">${message}</span>
-</c:if>
 
 <table id="product_table" class="table table-striped table-bordered" style="width: 100%">
     <thead>
@@ -50,10 +62,10 @@
             <td>${product.getPrice()}</td>
             <td>${product.getDescription()}</td>
             <td>${product.getProducer()}</td>
-                <%--            <td><a href="/products?action=edit&id=${product.getId()}" class="btn btn-warning">Chỉnh sửa</a></td>--%>
+
             <td><!-- Button trigger modal -->
                 <button type="button" class="btn btn-warning" data-bs-toggle="modal"
-                        data-bs-target="#update${product.getId()}">
+                        data-bs-target="#update${product.getId()}" >
                     Chỉnh sửa
                 </button>
 
@@ -153,6 +165,9 @@
 <script src="datatables/js/jquery.dataTables.min.js"></script>
 <script src="datatables/js/dataTables.bootstrap5.min.js"></script>
 <script>
+    function doSth(){
+        alert(document.getElementById("price").textContent);
+    }
     $(document).ready(function () {
         $('#product_table').dataTable({
             "dom": 'lrtip',
