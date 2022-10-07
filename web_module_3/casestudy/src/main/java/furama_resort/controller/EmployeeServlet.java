@@ -61,15 +61,6 @@ public class EmployeeServlet extends HttpServlet {
             case "view":
                 viewEmployee(request, response);
                 break;
-            case "villa":
-                listVillas(request, response);
-                break;
-            case "house":
-                listHouses(request, response);
-                break;
-            case "room":
-                listRooms(request, response);
-                break;
             case "edit":
                 showEditForm(request, response);
                 break;
@@ -82,56 +73,9 @@ public class EmployeeServlet extends HttpServlet {
     private void listEmployees(HttpServletRequest request, HttpServletResponse response) {
         List<Employee> facilities = this.employeeService.findAll();
         request.setAttribute("facilities", facilities);
-        request.setAttribute("rentType", this.employeeRepository.findRentType());
-        request.setAttribute("serviceType", this.employeeRepository.findServiceType());
-        RequestDispatcher dispatcher = request.getRequestDispatcher("furama_resort\\employee\\listEmployee.jsp");
-        try {
-            dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void listVillas(HttpServletRequest request, HttpServletResponse response) {
-        List<Employee> facilities = this.employeeService.findVilla();
-        request.setAttribute("facilities", facilities);
-        request.setAttribute("rentType", this.employeeRepository.findRentType());
-        request.setAttribute("serviceType", this.employeeRepository.findServiceType());
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("furama_resort\\employee\\listEmployee.jsp");
-        try {
-            dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void listHouses(HttpServletRequest request, HttpServletResponse response) {
-        List<Employee> facilities = this.employeeService.findHouse();
-        request.setAttribute("facilities", facilities);
-        request.setAttribute("rentType", this.employeeRepository.findRentType());
-        request.setAttribute("serviceType", this.employeeRepository.findServiceType());
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("furama_resort\\employee\\listEmployee.jsp");
-        try {
-            dispatcher.forward(request, response);
-        } catch (ServletException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-    }
-
-    private void listRooms(HttpServletRequest request, HttpServletResponse response) {
-        List<Employee> facilities = this.employeeService.findRoom();
-        request.setAttribute("facilities", facilities);
-        request.setAttribute("rentType", this.employeeRepository.findRentType());
-        request.setAttribute("serviceType", this.employeeRepository.findServiceType());
-
+        request.setAttribute("position", this.employeeRepository.findPosition());
+        request.setAttribute("division", this.employeeRepository.findDivision());
+        request.setAttribute("education", this.employeeRepository.findEducation());
         RequestDispatcher dispatcher = request.getRequestDispatcher("furama_resort\\employee\\listEmployee.jsp");
         try {
             dispatcher.forward(request, response);
@@ -155,21 +99,18 @@ public class EmployeeServlet extends HttpServlet {
     }
 
     private void createEmployee(HttpServletRequest request, HttpServletResponse response) {
-        int employeeTypeId = Integer.parseInt(request.getParameter("serviceType"));
-        Employee employee;
-        switch (employeeTypeId) {
-            case 1:
-                employee = createVilla(request);
-                break;
-            case 2:
-                employee = createHouse(request);
-                break;
-            case 3:
-                employee = createRoom(request);
-                break;
-            default:
-                employee = null;
-        }
+        String name = request.getParameter("name");
+        String birthday = request.getParameter("birthday");
+        String idCard = request.getParameter("idCard");
+        double salary = Double.parseDouble(request.getParameter("salary"));
+        String phoneNumber = request.getParameter("phoneNumber");
+        String email = request.getParameter("email");
+        String address = request.getParameter("address");
+        int positionId = Integer.parseInt(request.getParameter("positionId"));
+        int educationDegreeId = Integer.parseInt(request.getParameter("educationDegreeId"));
+        int divisionId = Integer.parseInt(request.getParameter("divisionId"));
+        Employee employee = new Employee(name, birthday, idCard, salary, phoneNumber, email, address, positionId, educationDegreeId, divisionId);
+
         this.employeeService.save(employee);
         RequestDispatcher dispatcher = request.getRequestDispatcher("furama_resort\\employee\\createEmployee.jsp");
         request.setAttribute("message", "Thêm mới thành công!");
@@ -182,165 +123,28 @@ public class EmployeeServlet extends HttpServlet {
         }
     }
 
-    private Employee createVilla(HttpServletRequest request) {
-        String name = request.getParameter("name");
-        int area = Integer.parseInt(request.getParameter("area"));
-        double cost = Double.parseDouble(request.getParameter("cost"));
-        int maxPeople = Integer.parseInt(request.getParameter("maxPeople"));
-        String standard = request.getParameter("standard");
-        String description = request.getParameter("description");
-        double poolArea = Double.parseDouble(request.getParameter("poolArea"));
-        int floors = Integer.parseInt(request.getParameter("floors"));
-//        String employeeFree = request.getParameter("employeeFree");
-        int rentTypeId = Integer.parseInt(request.getParameter("rentType"));
-        int employeeTypeId = Integer.parseInt(request.getParameter("serviceType"));
-
-        return new Employee(name, area, cost, maxPeople, rentTypeId, employeeTypeId, standard, description, poolArea, floors);
-    }
-
-    private Employee createHouse(HttpServletRequest request) {
-        String name = request.getParameter("name");
-        int area = Integer.parseInt(request.getParameter("area"));
-        double cost = Double.parseDouble(request.getParameter("cost"));
-        int maxPeople = Integer.parseInt(request.getParameter("maxPeople"));
-        String standard = request.getParameter("standard");
-        String description = request.getParameter("description");
-//        double poolArea = Double.parseDouble(request.getParameter("poolArea"));
-        int floors = Integer.parseInt(request.getParameter("floors"));
-//        String employeeFree = request.getParameter("employeeFree");
-        int rentTypeId = Integer.parseInt(request.getParameter("rentType"));
-        int employeeTypeId = Integer.parseInt(request.getParameter("serviceType"));
-
-        return new Employee(name, area, cost, maxPeople, rentTypeId, employeeTypeId, standard, description, floors);
-    }
-
-    private Employee createRoom(HttpServletRequest request) {
-        String name = request.getParameter("name");
-        int area = Integer.parseInt(request.getParameter("area"));
-        double cost = Double.parseDouble(request.getParameter("cost"));
-        int maxPeople = Integer.parseInt(request.getParameter("maxPeople"));
-//        String standard = request.getParameter("standard");
-//        String description = request.getParameter("description");
-//        double poolArea = Double.parseDouble(request.getParameter("poolArea"));
-//        int floors = Integer.parseInt(request.getParameter("floors"));
-        String employeeFree = request.getParameter("employeeFree");
-        int rentTypeId = Integer.parseInt(request.getParameter("rentType"));
-        int employeeTypeId = Integer.parseInt(request.getParameter("serviceType"));
-
-        return new Employee(name, area, cost, maxPeople, rentTypeId, employeeTypeId, employeeFree);
-    }
-
     private void updateEmployee(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
-//        String name = request.getParameter("name");
-//        int area = Integer.parseInt(request.getParameter("area"));
-//        double cost = Double.parseDouble(request.getParameter("cost"));
-//        int maxPeople = Integer.parseInt(request.getParameter("maxPeople"));
-//        String standard = request.getParameter("standard");
-//        String description = request.getParameter("description");
-//        double poolArea = Double.parseDouble(request.getParameter("poolArea"));
-//        int floors = Integer.parseInt(request.getParameter("floors"));
-//        String employeeFree = request.getParameter("employeeFree");
-//        int rentTypeId = Integer.parseInt(request.getParameter("rentType"));
-//        int employeeTypeId = Integer.parseInt(request.getParameter("employeeType"));
-
         Employee employee = this.employeeService.findById(id);
         if (employee == null) {
             request.setAttribute("message", "Chỉnh sửa thất bại! Vui lòng kiểm tra lại.");
         } else {
-            int employeeTypeId = Integer.parseInt(request.getParameter("employeeTypeId"));
-            switch (employeeTypeId) {
-                case 1:
-                    updateVilla(request, employee);
-                    break;
-                case 2:
-                    updateHouse(request, employee);
-                    break;
-                case 3:
-                    updateRoom(request, employee);
-                    break;
-                default:
-                    employee = null;
-            }
-            this.employeeService.update(id, employee);
+            String name = request.getParameter("name");
+            String birthday = request.getParameter("birthday");
+            String idCard = request.getParameter("idCard");
+            double salary = Double.parseDouble(request.getParameter("salary"));
+            String phoneNumber = request.getParameter("phoneNumber");
+            String email = request.getParameter("email");
+            String address = request.getParameter("address");
+            int positionId = Integer.parseInt(request.getParameter("positionId"));
+            int educationDegreeId = Integer.parseInt(request.getParameter("educationDegreeId"));
+            int divisionId = Integer.parseInt(request.getParameter("divisionId"));
+
+            Employee employeeEdit = new Employee(id, name, birthday, idCard, salary, phoneNumber, email, address, positionId, educationDegreeId, divisionId);
+            this.employeeService.update(id, employeeEdit);
             request.setAttribute("message", "Cập nhật thông tin sản phẩm thành công!");
         }
         listEmployees(request, response);
-    }
-
-    private void updateVilla(HttpServletRequest request, Employee employee) {
-        String name = request.getParameter("name");
-        employee.setName(name);
-        int area = Integer.parseInt(request.getParameter("area"));
-        employee.setArea(area);
-        double cost = Double.parseDouble(request.getParameter("cost"));
-        employee.setCost(cost);
-        int maxPeople = Integer.parseInt(request.getParameter("maxPeople"));
-        employee.setMaxPeople(maxPeople);
-        String standard = request.getParameter("standard");
-        employee.setStandard(standard);
-        String description = request.getParameter("description");
-        employee.setDescription(description);
-        double poolArea = Double.parseDouble(request.getParameter("poolArea"));
-        employee.setPoolArea(poolArea);
-        int floors = Integer.parseInt(request.getParameter("floors"));
-        employee.setFloors(floors);
-//        String employeeFree = request.getParameter("employeeFree");
-//        employee.setEmployeeFree(employeeFree);
-        int rentTypeId = Integer.parseInt(request.getParameter("rentType"));
-        employee.setRentTypeId(rentTypeId);
-        int employeeTypeId = Integer.parseInt(request.getParameter("employeeTypeId"));
-        employee.setEmployeeTypeId(employeeTypeId);
-    }
-
-    private void updateHouse(HttpServletRequest request, Employee employee) {
-        String name = request.getParameter("name");
-        employee.setName(name);
-        int area = Integer.parseInt(request.getParameter("area"));
-        employee.setArea(area);
-        double cost = Double.parseDouble(request.getParameter("cost"));
-        employee.setCost(cost);
-        int maxPeople = Integer.parseInt(request.getParameter("maxPeople"));
-        employee.setMaxPeople(maxPeople);
-        String standard = request.getParameter("standard");
-        employee.setStandard(standard);
-        String description = request.getParameter("description");
-        employee.setDescription(description);
-//        double poolArea = Double.parseDouble(request.getParameter("poolArea"));
-//        employee.setPoolArea(poolArea);
-        int floors = Integer.parseInt(request.getParameter("floors"));
-        employee.setFloors(floors);
-//        String employeeFree = request.getParameter("employeeFree");
-//        employee.setEmployeeFree(employeeFree);
-        int rentTypeId = Integer.parseInt(request.getParameter("rentType"));
-        employee.setRentTypeId(rentTypeId);
-        int employeeTypeId = Integer.parseInt(request.getParameter("employeeTypeId"));
-        employee.setEmployeeTypeId(employeeTypeId);
-    }
-
-    private void updateRoom(HttpServletRequest request, Employee employee) {
-        String name = request.getParameter("name");
-        employee.setName(name);
-        int area = Integer.parseInt(request.getParameter("area"));
-        employee.setArea(area);
-        double cost = Double.parseDouble(request.getParameter("cost"));
-        employee.setCost(cost);
-        int maxPeople = Integer.parseInt(request.getParameter("maxPeople"));
-        employee.setMaxPeople(maxPeople);
-//        String standard = request.getParameter("standard");
-//        employee.setStandard(standard);
-//        String description = request.getParameter("description");
-//        employee.setDescription(description);
-//        double poolArea = Double.parseDouble(request.getParameter("poolArea"));
-//        employee.setPoolArea(poolArea);
-//        int floors = Integer.parseInt(request.getParameter("floors"));
-//        employee.setFloors(floors);
-        String employeeFree = request.getParameter("employeeFree");
-        employee.setEmployeeFree(employeeFree);
-        int rentTypeId = Integer.parseInt(request.getParameter("rentType"));
-        employee.setRentTypeId(rentTypeId);
-        int employeeTypeId = Integer.parseInt(request.getParameter("employeeTypeId"));
-        employee.setEmployeeTypeId(employeeTypeId);
     }
 
     private void deleteEmployee(HttpServletRequest request, HttpServletResponse response) {
@@ -388,8 +192,9 @@ public class EmployeeServlet extends HttpServlet {
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("furama_resort\\employee\\listEmployee.jsp");
         request.setAttribute("facilities", facilities);
-        request.setAttribute("rentType", this.employeeRepository.findRentType());
-        request.setAttribute("serviceType", this.employeeRepository.findServiceType());
+        request.setAttribute("position", this.employeeRepository.findPosition());
+        request.setAttribute("division", this.employeeRepository.findDivision());
+        request.setAttribute("education", this.employeeRepository.findEducation());
 
         try {
             dispatcher.forward(request, response);
@@ -420,13 +225,14 @@ public class EmployeeServlet extends HttpServlet {
         Employee employee = this.employeeService.findById(id);
 
         if (employee == null) {
-            request.setAttribute("message", "Sản phẩm không tồn tại!");
+            request.setAttribute("message", "Đối tượng không tồn tại!");
             listEmployees(request, response);
         } else {
             RequestDispatcher dispatcher = request.getRequestDispatcher("\\furama_resort\\employee\\editEmployee.jsp");
             request.setAttribute("employee", employee);
-            request.setAttribute("rentType", this.employeeRepository.findRentType());
-            request.setAttribute("serviceType", this.employeeRepository.findServiceType());
+            request.setAttribute("position", this.employeeRepository.findPosition());
+            request.setAttribute("division", this.employeeRepository.findDivision());
+            request.setAttribute("education", this.employeeRepository.findEducation());
             try {
                 dispatcher.forward(request, response);
             } catch (ServletException | IOException e) {
