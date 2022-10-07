@@ -36,23 +36,12 @@ public class EmployeeService implements IEmployeeService {
     }
 
     @Override
-    public List<Employee> searchEmployee(String searchName, double cost, int serviceTypeId) {
-        return null;
+    public List<Employee> searchEmployee(String searchName, int divisionId) {
+        return iEmployeeRepository.searchEmployee("%" + searchName + "%", divisionId);
     }
 
     @Override
-    public List<Employee> searchEmployee(String searchName, double cost) {
-        return null;
+    public List<Employee> searchEmployee(String searchName) {
+        return iEmployeeRepository.searchEmployee("%" + searchName + "%");
     }
-
-
-    public List<Employee> findEmployee(String name, double cost, int serviceTypeId) {
-        return iEmployeeRepository.searchEmployee("%" + name + "%", cost, serviceTypeId);
-    }
-
-    public List<Employee> findEmployee(String name, double cost) {
-        return iEmployeeRepository.searchEmployee("%" + name + "%", cost);
-    }
-
-
 }

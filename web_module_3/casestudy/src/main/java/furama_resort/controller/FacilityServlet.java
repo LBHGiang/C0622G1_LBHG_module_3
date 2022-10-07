@@ -84,7 +84,7 @@ public class FacilityServlet extends HttpServlet {
         request.setAttribute("facilities", facilities);
         request.setAttribute("rentType", this.facilityRepository.findRentType());
         request.setAttribute("serviceType", this.facilityRepository.findServiceType());
-        RequestDispatcher dispatcher = request.getRequestDispatcher("furama_resort\\facility\\listFacility.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("furama_resort\\facility\\list.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -100,7 +100,7 @@ public class FacilityServlet extends HttpServlet {
         request.setAttribute("rentType", this.facilityRepository.findRentType());
         request.setAttribute("serviceType", this.facilityRepository.findServiceType());
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("furama_resort\\facility\\listFacility.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("furama_resort\\facility\\list.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -116,7 +116,7 @@ public class FacilityServlet extends HttpServlet {
         request.setAttribute("rentType", this.facilityRepository.findRentType());
         request.setAttribute("serviceType", this.facilityRepository.findServiceType());
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("furama_resort\\facility\\listFacility.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("furama_resort\\facility\\list.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -132,7 +132,7 @@ public class FacilityServlet extends HttpServlet {
         request.setAttribute("rentType", this.facilityRepository.findRentType());
         request.setAttribute("serviceType", this.facilityRepository.findServiceType());
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("furama_resort\\facility\\listFacility.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("furama_resort\\facility\\list.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -143,8 +143,7 @@ public class FacilityServlet extends HttpServlet {
     }
 
     private void showCreateForm(HttpServletRequest request, HttpServletResponse response) {
-
-        RequestDispatcher dispatcher = request.getRequestDispatcher("\\furama_resort\\facility\\createFacility.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("\\furama_resort\\facility\\create.jsp");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {
@@ -171,7 +170,7 @@ public class FacilityServlet extends HttpServlet {
                 facility = null;
         }
         this.facilityService.save(facility);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("furama_resort\\facility\\createFacility.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("furama_resort\\facility\\create.jsp");
         request.setAttribute("message", "Thêm mới thành công!");
         try {
             dispatcher.forward(request, response);
@@ -191,7 +190,7 @@ public class FacilityServlet extends HttpServlet {
         String description = request.getParameter("description");
         double poolArea = Double.parseDouble(request.getParameter("poolArea"));
         int floors = Integer.parseInt(request.getParameter("floors"));
-//        String facilityFree = request.getParameter("facilityFree");
+//        String facilityFree = request.getParameter("freeService");
         int rentTypeId = Integer.parseInt(request.getParameter("rentType"));
         int facilityTypeId = Integer.parseInt(request.getParameter("serviceType"));
 
@@ -207,7 +206,7 @@ public class FacilityServlet extends HttpServlet {
         String description = request.getParameter("description");
 //        double poolArea = Double.parseDouble(request.getParameter("poolArea"));
         int floors = Integer.parseInt(request.getParameter("floors"));
-//        String facilityFree = request.getParameter("facilityFree");
+//        String facilityFree = request.getParameter("freeService");
         int rentTypeId = Integer.parseInt(request.getParameter("rentType"));
         int facilityTypeId = Integer.parseInt(request.getParameter("serviceType"));
 
@@ -223,7 +222,7 @@ public class FacilityServlet extends HttpServlet {
 //        String description = request.getParameter("description");
 //        double poolArea = Double.parseDouble(request.getParameter("poolArea"));
 //        int floors = Integer.parseInt(request.getParameter("floors"));
-        String facilityFree = request.getParameter("facilityFree");
+        String facilityFree = request.getParameter("freeService");
         int rentTypeId = Integer.parseInt(request.getParameter("rentType"));
         int facilityTypeId = Integer.parseInt(request.getParameter("serviceType"));
 
@@ -232,115 +231,28 @@ public class FacilityServlet extends HttpServlet {
 
     private void updateFacility(HttpServletRequest request, HttpServletResponse response) {
         int id = Integer.parseInt(request.getParameter("id"));
-//        String name = request.getParameter("name");
-//        int area = Integer.parseInt(request.getParameter("area"));
-//        double cost = Double.parseDouble(request.getParameter("cost"));
-//        int maxPeople = Integer.parseInt(request.getParameter("maxPeople"));
-//        String standard = request.getParameter("standard");
-//        String description = request.getParameter("description");
-//        double poolArea = Double.parseDouble(request.getParameter("poolArea"));
-//        int floors = Integer.parseInt(request.getParameter("floors"));
-//        String facilityFree = request.getParameter("facilityFree");
-//        int rentTypeId = Integer.parseInt(request.getParameter("rentType"));
-//        int facilityTypeId = Integer.parseInt(request.getParameter("facilityType"));
-
         Facility facility = this.facilityService.findById(id);
         if (facility == null) {
             request.setAttribute("message", "Chỉnh sửa thất bại! Vui lòng kiểm tra lại.");
         } else {
-            int facilityTypeId = Integer.parseInt(request.getParameter("facilityTypeId"));
+            int facilityTypeId = Integer.parseInt(request.getParameter("serviceType"));
             switch (facilityTypeId) {
                 case 1:
-                    updateVilla(request, facility);
+                    facility = createVilla(request);
                     break;
                 case 2:
-                    updateHouse(request, facility);
+                    facility = createHouse(request);
                     break;
                 case 3:
-                    updateRoom(request, facility);
+                    facility = createRoom(request);
                     break;
                 default:
                     facility = null;
             }
             this.facilityService.update(id, facility);
-            request.setAttribute("message", "Cập nhật thông tin sản phẩm thành công!");
+            request.setAttribute("message", "Cập nhật thông tin thành công!");
         }
         listFacilities(request, response);
-    }
-
-    private void updateVilla(HttpServletRequest request, Facility facility) {
-        String name = request.getParameter("name");
-        facility.setName(name);
-        int area = Integer.parseInt(request.getParameter("area"));
-        facility.setArea(area);
-        double cost = Double.parseDouble(request.getParameter("cost"));
-        facility.setCost(cost);
-        int maxPeople = Integer.parseInt(request.getParameter("maxPeople"));
-        facility.setMaxPeople(maxPeople);
-        String standard = request.getParameter("standard");
-        facility.setStandard(standard);
-        String description = request.getParameter("description");
-        facility.setDescription(description);
-        double poolArea = Double.parseDouble(request.getParameter("poolArea"));
-        facility.setPoolArea(poolArea);
-        int floors = Integer.parseInt(request.getParameter("floors"));
-        facility.setFloors(floors);
-//        String facilityFree = request.getParameter("facilityFree");
-//        facility.setFacilityFree(facilityFree);
-        int rentTypeId = Integer.parseInt(request.getParameter("rentType"));
-        facility.setRentTypeId(rentTypeId);
-        int facilityTypeId = Integer.parseInt(request.getParameter("facilityTypeId"));
-        facility.setFacilityTypeId(facilityTypeId);
-    }
-
-    private void updateHouse(HttpServletRequest request, Facility facility) {
-        String name = request.getParameter("name");
-        facility.setName(name);
-        int area = Integer.parseInt(request.getParameter("area"));
-        facility.setArea(area);
-        double cost = Double.parseDouble(request.getParameter("cost"));
-        facility.setCost(cost);
-        int maxPeople = Integer.parseInt(request.getParameter("maxPeople"));
-        facility.setMaxPeople(maxPeople);
-        String standard = request.getParameter("standard");
-        facility.setStandard(standard);
-        String description = request.getParameter("description");
-        facility.setDescription(description);
-//        double poolArea = Double.parseDouble(request.getParameter("poolArea"));
-//        facility.setPoolArea(poolArea);
-        int floors = Integer.parseInt(request.getParameter("floors"));
-        facility.setFloors(floors);
-//        String facilityFree = request.getParameter("facilityFree");
-//        facility.setFacilityFree(facilityFree);
-        int rentTypeId = Integer.parseInt(request.getParameter("rentType"));
-        facility.setRentTypeId(rentTypeId);
-        int facilityTypeId = Integer.parseInt(request.getParameter("facilityTypeId"));
-        facility.setFacilityTypeId(facilityTypeId);
-    }
-
-    private void updateRoom(HttpServletRequest request, Facility facility) {
-        String name = request.getParameter("name");
-        facility.setName(name);
-        int area = Integer.parseInt(request.getParameter("area"));
-        facility.setArea(area);
-        double cost = Double.parseDouble(request.getParameter("cost"));
-        facility.setCost(cost);
-        int maxPeople = Integer.parseInt(request.getParameter("maxPeople"));
-        facility.setMaxPeople(maxPeople);
-//        String standard = request.getParameter("standard");
-//        facility.setStandard(standard);
-//        String description = request.getParameter("description");
-//        facility.setDescription(description);
-//        double poolArea = Double.parseDouble(request.getParameter("poolArea"));
-//        facility.setPoolArea(poolArea);
-//        int floors = Integer.parseInt(request.getParameter("floors"));
-//        facility.setFloors(floors);
-        String facilityFree = request.getParameter("facilityFree");
-        facility.setFacilityFree(facilityFree);
-        int rentTypeId = Integer.parseInt(request.getParameter("rentType"));
-        facility.setRentTypeId(rentTypeId);
-        int facilityTypeId = Integer.parseInt(request.getParameter("facilityTypeId"));
-        facility.setFacilityTypeId(facilityTypeId);
     }
 
     private void deleteFacility(HttpServletRequest request, HttpServletResponse response) {
@@ -386,7 +298,7 @@ public class FacilityServlet extends HttpServlet {
             facilities = this.facilityService.findFacility(name, cost, serviceTypeId);
         }
 
-        RequestDispatcher dispatcher = request.getRequestDispatcher("furama_resort\\facility\\listFacility.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("furama_resort\\facility\\list.jsp");
         request.setAttribute("facilities", facilities);
         request.setAttribute("rentType", this.facilityRepository.findRentType());
         request.setAttribute("serviceType", this.facilityRepository.findServiceType());
@@ -423,7 +335,7 @@ public class FacilityServlet extends HttpServlet {
             request.setAttribute("message", "Sản phẩm không tồn tại!");
             listFacilities(request, response);
         } else {
-            RequestDispatcher dispatcher = request.getRequestDispatcher("\\furama_resort\\facility\\editFacility.jsp");
+            RequestDispatcher dispatcher = request.getRequestDispatcher("\\furama_resort\\facility\\edit.jsp");
             request.setAttribute("facility", facility);
             request.setAttribute("rentType", this.facilityRepository.findRentType());
             request.setAttribute("serviceType", this.facilityRepository.findServiceType());

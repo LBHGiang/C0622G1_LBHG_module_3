@@ -15,7 +15,7 @@ public interface IEmployeeService {
 
     void remove(int id);
 
-    List<Employee> searchEmployee(String searchName, double cost, int serviceTypeId);
+    List<Employee> searchEmployee(String searchName, int divisionId);
 
-    List<Employee> searchEmployee(String searchName, double cost);
+    List<Employee> searchEmployee(String searchName);
 }

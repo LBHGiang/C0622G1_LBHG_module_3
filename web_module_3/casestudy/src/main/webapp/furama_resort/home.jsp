@@ -73,14 +73,10 @@
                     </li>
                     <li id="nav-menu-item-5010"
                         class="nav-item  menu-item-even menu-item-depth-0 menu-item menu-item-type-post_type menu-item-object-page">
-                        <a href="https://furamavietnam.com/vi/spa-and-fitness/"
+                        <a href="/contracts"
                            class="nav-link main-menu-link">CONTRACT</a>
                     </li>
                 </ul>
-                <form class="d-flex" action="/products?action=find" method="post">
-                    <input type="search" placeholder="Tìm kiếm" aria-label="Search" name="name" id="searchName">
-                    <input type="submit" value="Tìm kiếm" class="btn btn-outline-success">
-                </form>
             </div>
         </nav>
     </div>
@@ -93,7 +89,7 @@
         </div>
         <div id="content" class="col-10">
 
-            <h1 style="text-align: center; color: blue">Đây là trang chủ</h1>
+            <h1 style="text-align: center; color: blue">Welcome!</h1>
         </div>
     </div>
 </div>
@@ -102,7 +98,7 @@
 <footer class="bd-footer py-1 mt-5 bg-light">
     <div class="container py-3">
         <div class="row">
-            Đây là footer
+            Chào mừng bạn đến với mớ hỗn độn của Lê Bá Hoàng Giang.
         </div>
     </div>
 </footer>

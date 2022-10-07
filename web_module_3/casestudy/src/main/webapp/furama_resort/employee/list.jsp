@@ -14,13 +14,13 @@
     <%--    Link bootstrap 5.1 có navbar dropdown--%>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-<style>
-    body {
-        background: url("../image/bg_img.jpg") no-repeat center/cover;
-        height: 100vh;
-        width: 100vw;
-    }
-</style>
+    <style>
+        body {
+            background: url("../image/bg_img.jpg") no-repeat center/cover;
+            height: 100vh;
+            width: 100vw;
+        }
+    </style>
 </head>
 <%--2 link phân trang--%>
 <link rel="stylesheet" href="bootstrap520/css/bootstrap.min.css"/>
@@ -48,20 +48,20 @@
 
 <%--Navbar--%>
 <div class="header-nav js-header-nav sticky bg-light">
-    <div class="container-fluid p-3">
+    <div class="container">
         <nav class="navbar navbar-expand-lg">
             <div class="navbar-collapse">
-                <ul id="menu-furama-vi" class="menu navbar-nav js-main-menu">
+                <ul id="menu-furama-vi" class="menu navbar-nav w-100 js-main-menu">
                     <li id="nav-menu-item-5006"
                         class="nav-item  menu-item-even menu-item-depth-0 menu-item menu-item-type-post_type menu-item-object-page">
                         <a href="/furama_resort/home.jsp" class="nav-link main-menu-link">HOME</a></li>
                     <li id="nav-menu-item-5007"
                         class="nav-item  menu-item-even menu-item-depth-0 menu-item menu-item-type-post_type menu-item-object-page">
-                        <a href="https://furamavietnam.com/vi/our-rooms/" class="nav-link main-menu-link">EMPLOYEE</a>
+                        <a href="/employees" class="nav-link main-menu-link">EMPLOYEE</a>
                     </li>
                     <li id="nav-menu-item-5008"
                         class="nav-item  menu-item-even menu-item-depth-0 menu-item menu-item-type-post_type menu-item-object-page">
-                        <a href="https://furamavietnam.com/vi/culinary/" class="nav-link main-menu-link">CUSTOMER</a>
+                        <a href="/customers" class="nav-link main-menu-link">CUSTOMER</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="/facilities" id="navbarDropdown" role="button"
@@ -80,19 +80,18 @@
                     </li>
                     <li id="nav-menu-item-5010"
                         class="nav-item  menu-item-even menu-item-depth-0 menu-item menu-item-type-post_type menu-item-object-page">
-                        <a href="https://furamavietnam.com/vi/spa-and-fitness/"
+                        <a href="/contracts"
                            class="nav-link main-menu-link">CONTRACT</a>
                     </li>
                 </ul>
-                <form class="d-flex m-0 p-0 align-items-center justify-content-end" style="flex: 1" action="/facilities?action=find" method="post">
+                <form class="d-flex m-0 p-0 align-items-center justify-content-end" style="flex: 1" action="/employees?action=find" method="post">
                     <input type="search" placeholder="Tìm theo tên" aria-label="Search" name="name">
-                    <span class="mx-3">Giá <</span>
-                    <input type="number" aria-label="Search" name="cost" value="100000000">
-                    <select name="serviceType" class="mx-3">
-                        <option value="0">Tất cả dịch vụ</option>
-                        <option value="1">Villa</option>
-                        <option value="2">House</option>
-                        <option value="3">Room</option>
+                    <select name="divisionId" class="mx-3">
+                        <option value="0">Tất cả bộ phận</option>
+                        <option value="1">Sale-Marketing</option>
+                        <option value="2">Hành chính</option>
+                        <option value="3">Phục vụ</option>
+                        <option value="4">Quản lý</option>
                     </select>
                     <input type="submit" value="Tìm kiếm" class="btn btn-outline-success">
                 </form>
@@ -106,7 +105,7 @@
     <div class="row" style="width: 100%; padding: 0; margin: 0;">
         <div id="left" class="col-2">
             <ul id="ul_left" style="list-style-type: none; margin-left: -25px; margin-top: 50px">
-                <li><a href="/facilities?action=create" class="btn btn-primary" role="button">Thêm mới sản phẩm</a></li>
+                <li><a href="/employees?action=create" class="btn btn-primary" role="button">Thêm mới nhân viên</a></li>
                 <%--                <li><a href="/faciliies?action=create" class="btn btn-primary" role="button">Thêm mới sản phẩm</a></li>--%>
                 <%--                <li><a href="/faciliies?action=create" class="btn btn-primary" role="button">Thêm mới sản phẩm</a></li>--%>
             </ul>
@@ -132,58 +131,41 @@
                     </div>
                 </div>
             </c:if>
-            <h1 style="text-align: center; color: blue">Danh sách dịch vụ</h1>
+            <h1 style="text-align: center; color: blue">Danh sách Nhân viên</h1>
 
 
-            <table id="facility_table" class="table table-striped table-bordered" style="width: 100%">
+            <table id="employee_table" class="table table-striped table-bordered" style="width: 100%">
                 <thead>
                 <tr>
                     <th>STT</th>
-                    <th>ID</th>
                     <th>Tên</th>
-                    <th>Kiểu dịch vụ</th>
-                    <th>Kiểu thuê</th>
-                    <th>Diện tích</th>
-                    <th>Giá</th>
-                    <th>Số người tối đa</th>
-                    <th>Tiêu chuẩn phòng</th>
-                    <%--                    <th>Mô tả</th>--%>
-                    <%--                    <th>Diện tích hồ bơi</th>--%>
-                    <th>Số tầng</th>
-                    <%--                    <th>Dịch vụ miễn phí</th>--%>
+                    <th>CMND</th>
+                    <th>Lương</th>
+                    <th>SĐT</th>
+                    <th>Trình độ học vấn</th>
+                    <th>Chức vụ</th>
+                    <th>Bộ phận</th>
                     <th>Chỉnh sửa</th>
                     <th>Xóa</th>
                 </tr>
                 </thead>
                 <tbody>
-                <c:forEach var="facility" items="${facilities}" varStatus="status">
+                <c:forEach var="employee" items="${employees}" varStatus="status">
                     <tr>
-                        <td>${status.count}</td>
-                        <td>${facility.id}</td>
-                            <%--                        <td><a href="/facilities?action=view&id=${facility.id}">${facility.name}</a></td>--%>
-                        <td>${facility.name}</td>
-                        <td>${serviceType.get(facility.facilityTypeId)}</td>
-                        <td>${rentType.get(facility.rentTypeId)}</td>
-                        <td>${facility.area}</td>
-                        <td>${facility.cost}</td>
-                        <td>${facility.maxPeople}</td>
-                        <td>${facility.standard}</td>
-                            <%--                        <td>${facility.description}</td>--%>
-                            <%--                        <td>${facility.poolArea}</td>--%>
-                        <td>${facility.floors}</td>
-                            <%--                        <td>${facility.facilityFree}</td>--%>
-                        <td><a href="/facilities?action=edit&id=${facility.id}" class="btn btn-warning">Chỉnh sửa</a>
+                        <td>${status.count}<input type="hidden" name="id" value="${employee.id}"></td>
+                            <%--                        <td><a href="/employees?action=view&id=${employee.id}">${employee.name}</a></td>--%>
+                        <td>${employee.name}</td>
+                        <td>${employee.idCard}</td>
+                        <td>${employee.salary}</td>
+                        <td>${employee.phoneNumber}</td>
+                        <td>${education.get(employee.educationDegreeId)}</td>
+                        <td>${position.get(employee.positionId)}</td>
+                        <td>${division.get(employee.divisionId)}</td>
+                        <td><a href="/employees?action=edit&id=${employee.id}" class="btn btn-warning">Chỉnh sửa</a>
                         </td>
-
-                            <%--                        <td><!-- Button trigger modal -->--%>
-                            <%--                            <button type="button"--%>
-                            <%--                                    onclick="sendToEditModal('${facility.id}','${facility.name}','${facility.price}','${facility.description}','${facility.producer}')"--%>
-                            <%--                                    class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#updateModal">--%>
-                            <%--                                Chỉnh sửa--%>
-                            <%--                            </button>--%>
-                            <%--                        </td>--%>
-                        <td><!-- Button trigger modal -->
-                            <button type="button" onclick="sendToDeleteModal('${facility.id}','${facility.name}')"
+                        <td>
+                                <%--delete Modal--%>
+                            <button type="button" onclick="sendToDeleteModal('${employee.id}','${employee.name}')"
                                     class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#deleteModal">
                                 Xóa
@@ -193,51 +175,6 @@
                 </c:forEach>
                 </tbody>
             </table>
-
-            <!-- Update Modal -->
-            <%--            <div class="modal fade" id="updateModal" tabindex="-1" aria-labelledby="exampleModalLabel"--%>
-            <%--                 aria-hidden="true">--%>
-            <%--                <div class="modal-dialog">--%>
-            <%--                    <div class="modal-content">--%>
-            <%--                        <div class="modal-header">--%>
-            <%--                            <h5 class="modal-title" id="exampleModalLabel-update">Chỉnh sửa sản phẩm</h5>--%>
-            <%--                            <button type="button" class="btn-close" data-bs-dismiss="modal"--%>
-            <%--                                    aria-label="Close"></button>--%>
-            <%--                        </div>--%>
-            <%--                        <div class="modal-body">--%>
-            <%--                            <form action="/products" method="post">--%>
-            <%--                                <input type="text" hidden name="action" value="update">--%>
-            <%--                                <input type="text" hidden name="id" id="idEdit">--%>
-            <%--                                <fieldset>--%>
-            <%--                                    <legend>Thông tin sản phẩm</legend>--%>
-            <%--                                    <table class="table table-striped table-bordered" style="width: 100%">--%>
-            <%--                                        <tr>--%>
-            <%--                                            <td>Tên:</td>--%>
-            <%--                                            <td><input type="text" name="name" id="nameEdit"></td>--%>
-            <%--                                        </tr>--%>
-            <%--                                        <tr>--%>
-            <%--                                            <td>Giá:</td>--%>
-            <%--                                            <td><input type="number" name="price" id="priceEdit"></td>--%>
-            <%--                                        </tr>--%>
-            <%--                                        <tr>--%>
-            <%--                                            <td>Mô tả:</td>--%>
-            <%--                                            <td><input type="text" name="description" id="descriptionEdit"></td>--%>
-            <%--                                        </tr>--%>
-            <%--                                        <tr>--%>
-            <%--                                            <td>Nhà sản xuất:</td>--%>
-            <%--                                            <td><input type="text" name="producer" id="producerEdit"></td>--%>
-            <%--                                        </tr>--%>
-            <%--                                    </table>--%>
-            <%--                                </fieldset>--%>
-            <%--                                <div class="modal-footer">--%>
-            <%--                                    <a href="/products" class="btn btn-secondary" data-bs-dismiss="modal">Hủy bỏ</a>--%>
-            <%--                                    <input type="submit" value="Xác nhận" class="btn btn-warning">--%>
-            <%--                                </div>--%>
-            <%--                            </form>--%>
-            <%--                        </div>--%>
-            <%--                    </div>--%>
-            <%--                </div>--%>
-            <%--            </div>--%>
 
             <!-- Delete Modal -->
             <div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -250,11 +187,11 @@
                                     aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            Xóa dịch vụ <strong id="nameDelete"></strong>?
+                            Xóa nhân viên <strong id="nameDelete"></strong>?
                         </div>
                         <div class="modal-footer">
-                            <a href="/products" class="btn btn-secondary" data-bs-dismiss="modal">Hủy bỏ</a>
-                            <form action="/facilities" method="post">
+                            <a href="/employees" class="btn btn-secondary" data-bs-dismiss="modal">Hủy bỏ</a>
+                            <form action="/employees" method="post">
                                 <input type="hidden" name="action" value="delete">
                                 <input type="hidden" name="id" id="idDelete">
                                 <input type="submit" value="Xác nhận" class="btn btn-danger">
@@ -271,7 +208,7 @@
 <footer class="bd-footer py-1 mt-5 bg-light">
     <div class="container py-3">
         <div class="row">
-            Đây là footer
+            Cám ơn bạn đã sử dụng dịch vụ của chúng tôi
         </div>
     </div>
 </footer>
@@ -289,7 +226,7 @@
 <script src="datatables/js/dataTables.bootstrap5.min.js"></script>
 <script>
     $(document).ready(function () {
-        $('#facility_table').dataTable({
+        $('#employee_table').dataTable({
             "dom": 'lrtip',
             "lengthChange": false,
             "pageLength": 5

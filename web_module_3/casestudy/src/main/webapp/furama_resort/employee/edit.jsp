@@ -45,11 +45,11 @@
                         <a href="/furama_resort/home.jsp" class="nav-link main-menu-link">HOME</a></li>
                     <li id="nav-menu-item-5007"
                         class="nav-item  menu-item-even menu-item-depth-0 menu-item menu-item-type-post_type menu-item-object-page">
-                        <a href="https://furamavietnam.com/vi/our-rooms/" class="nav-link main-menu-link">EMPLOYEE</a>
+                        <a href="/employees" class="nav-link main-menu-link">EMPLOYEE</a>
                     </li>
                     <li id="nav-menu-item-5008"
                         class="nav-item  menu-item-even menu-item-depth-0 menu-item menu-item-type-post_type menu-item-object-page">
-                        <a href="https://furamavietnam.com/vi/culinary/" class="nav-link main-menu-link">CUSTOMER</a>
+                        <a href="/customers" class="nav-link main-menu-link">CUSTOMER</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="/facilities" id="navbarDropdown" role="button"
@@ -68,14 +68,10 @@
                     </li>
                     <li id="nav-menu-item-5010"
                         class="nav-item  menu-item-even menu-item-depth-0 menu-item menu-item-type-post_type menu-item-object-page">
-                        <a href="https://furamavietnam.com/vi/spa-and-fitness/"
+                        <a href="/contracts"
                            class="nav-link main-menu-link">CONTRACT</a>
                     </li>
                 </ul>
-                <form class="d-flex" action="/facilities?action=find" method="post">
-                    <input type="search" placeholder="Tìm kiếm" aria-label="Search" name="name" id="searchName">
-                    <input type="submit" value="Tìm kiếm" class="btn btn-outline-success">
-                </form>
             </div>
         </nav>
     </div>
@@ -85,75 +81,83 @@
     <div class="row" style="width: 100%; padding: 0; margin: 0;">
         <div id="left" class="col-2">
             <ul id="ul_left" style="list-style-type: none; margin-left: -25px; margin-top: 50px">
-                <li style="margin: 10px"><a href="/facilities?" class="btn btn-primary" role="button">Quay lại Dịch vụ</a></li>
-                <li style="margin: 10px"><a href="furama_resort/home.jsp" class="btn btn-primary" role="button">Quay lại Trang chủ</a></li>
+                <li style="margin: 10px"><a href="/employees?" class="btn btn-primary" role="button">Quay lại Nhân
+                    viên</a></li>
+                <li style="margin: 10px"><a href="furama_resort/home.jsp" class="btn btn-primary" role="button">Quay lại
+                    Trang chủ</a></li>
             </ul>
         </div>
         <div id="content" class="col-10">
-            <h1 style="text-align: center; color: blue">Chỉnh sửa dịch vụ</h1>
+            <h1 style="text-align: center; color: blue">Chỉnh sửa thông tin nhân viên</h1>
             <form method="post">
-                <fieldset>
-                    <table>
+                <fieldset style="width: 50%; margin-left: 25%">
+                    <legend>Sửa thông tin</legend>
+                    <table class="table table-striped" style="text-align: left">
                         <tr>
                             <td>Tên:</td>
-                            <td><input type="text" name="name" id="name" value="${facility.name}"></td>
+                            <td><input type="text" name="name" id="name" value="${employee.name}"></td>
                         </tr>
                         <tr>
-                            <td>Kiểu dịch vụ</td>
-                            <td>${serviceType.get(facility.facilityTypeId)}</td>
-<%--                            <td><select name="facilityTypeId" onchange="openInput(this.value)">--%>
-<%--                                <option value="${facility.facilityTypeId}">${serviceType.get(facility.facilityTypeId)}</option>--%>
-<%--                                <option value="1">Villa</option>--%>
-<%--                                <option value="2">House</option>--%>
-<%--                                <option value="3">Room</option>--%>
-<%--                            </select>--%>
-<%--                            </td>--%>
+                            <td>Ngày sinh:</td>
+                            <td><input type="text" name="birthday" id="birthday" value="${employee.birthday}"></td>
                         </tr>
                         <tr>
-                            <td>Kiểu thuê</td>
-                            <td><select name="rentType">
-                                <option value="${facility.rentTypeId}">${rentType.get(facility.rentTypeId)}</option>
-                                <option value="1">year</option>
-                                <option value="2">month</option>
-                                <option value="3">day</option>
-                                <option value="4">hour</option>
+                            <td>CMND:</td>
+                            <td><input type="text" name="idCard" id="idCard" value="${employee.idCard}"></td>
+                        </tr>
+                        <tr>
+                            <td>Salary:</td>
+                            <td><input type="text" name="salary" id="salary" value="${employee.salary}"></td>
+                        </tr>
+                        <tr>
+                            <td>SĐT:</td>
+                            <td><input type="text" name="phoneNumber" id="phoneNumber" value="${employee.phoneNumber}"></td>
+                        </tr>
+                        <tr>
+                            <td>Email:</td>
+                            <td><input type="text" name="email" id="email" value="${employee.email}"></td>
+                        </tr>
+                        <tr>
+                            <td>Địa chỉ:</td>
+                            <td><input type="text" name="address" id="address" value="${employee.address}"></td>
+                        </tr>
+                        <tr>
+                            <td>Chức vụ</td>
+                            <td><select name="positionId">
+                                <option value="${employee.positionId}">${position.get(employee.positionId)}</option>
+                                <option value="1">Lễ tân</option>
+                                <option value="2">Phục vụ</option>
+                                <option value="3">Chuyên viên</option>
+                                <option value="4">Giám sát</option>
+                                <option value="5">Quản lý</option>
+                                <option value="6">Giám đốc</option>
                             </select>
                             </td>
                         </tr>
                         <tr>
-                            <td>Diện tích</td>
-                            <td><input type="text" name="area" id="area" value="${facility.area}"></td>
+                            <td>Trình độ</td>
+                            <td><select name="educationDegreeId">
+                                <option value="${employee.educationDegreeId}">${education.get(employee.educationDegreeId)}</option>
+                                <option value="1">Trung cấp</option>
+                                <option value="2">Cao đẳng</option>
+                                <option value="3">Đại học</option>
+                                <option value="4">Sau đại học</option>
+                            </select>
+                            </td>
                         </tr>
                         <tr>
-                            <td>Giá</td>
-                            <td><input type="text" name="cost" id="cost" value="${facility.cost}"></td>
+                            <td>Bộ phận</td>
+                            <td><select name="divisionId">
+                                <option value="${employee.divisionId}">${division.get(employee.divisionId)}</option>
+                                <option value="1">Sale-Marketing</option>
+                                <option value="2">Hành chính</option>
+                                <option value="3">Phục vụ</option>
+                                <option value="4">Quản lý</option>
+                            </select>
+                            </td>
                         </tr>
                         <tr>
-                            <td>Số người tối đa</td>
-                            <td><input type="text" name="maxPeople" id="maxPeople" value="${facility.maxPeople}"></td>
-                        </tr>
-                        <tr>
-                            <td>Tiêu chuẩn phòng</td>
-                            <td><input type="text" name="standard" id="standard" value="${facility.standard}"></td>
-                        </tr>
-                        <tr>
-                            <td>Mô tả</td>
-                            <td><input type="text" name="description" id="description"  value="${facility.description}"></td>
-                        </tr>
-                        <tr>
-                            <td>Diện tích hồ bơi</td>
-                            <td><input type="text" name="poolArea" id="poolArea" value="${facility.poolArea}"></td>
-                        </tr>
-                        <tr>
-                            <td>Số tầng</td>
-                            <td><input type="text" name="floors"  id="floors" value="${facility.floors}"></td>
-                        </tr>
-                        <tr>
-                            <td>Dịch vụ miễn phí</td>
-                            <td><input type="text" name="facilityFree"  id="freeService" value="${facility.facilityFree}"></td>
-                        </tr>
-                        <tr>
-                            <td><a href="/facilities" class="btn btn-primary" role="button">Quay lại Dịch vụ</a></td>
+                            <td><a href="/employees" class="btn btn-primary" role="button">Hủy bỏ</a></td>
                             <td><input type="submit" value="Chỉnh sửa"></td>
                         </tr>
                     </table>
@@ -166,7 +170,7 @@
 <footer class="bd-footer py-1 mt-5 bg-light">
     <div class="container py-3">
         <div class="row">
-            Đây là footer
+            Cám ơn bạn đã sử dụng dịch vụ của chúng tôi
         </div>
     </div>
 </footer>
@@ -183,14 +187,4 @@
 <script src="jquery/jquery-3.5.1.min.js"></script>
 <script src="datatables/js/jquery.dataTables.min.js"></script>
 <script src="datatables/js/dataTables.bootstrap5.min.js"></script>
-<script>
-    let inputId = ["standard", "description", "poolArea", "floors", "freeService"];
-    let facility = ["villa-standard-description-poolArea-floors", "house-standard-description-floors", "room-freeService"];
-
-    function openInput(value) {
-        for (let element of inputId) {
-            document.getElementById(element).disabled = !facility[parseInt(value)-1].includes(element);
-        }
-    }
-</script>
 </html>
