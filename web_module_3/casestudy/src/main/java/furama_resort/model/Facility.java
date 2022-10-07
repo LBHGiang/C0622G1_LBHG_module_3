@@ -32,6 +32,63 @@ public class Facility {
         this.facilityFree = facilityFree;
     }
 
+    public Facility(String name, int area, double cost, int maxPeople, int rentTypeId, int facilityTypeId, String standard, String description, double poolArea, int floors, String facilityFree) {
+        this.name = name;
+        this.area = area;
+        this.cost = cost;
+        this.maxPeople = maxPeople;
+        this.rentTypeId = rentTypeId;
+        this.facilityTypeId = facilityTypeId;
+        this.standard = standard;
+        this.description = description;
+        this.poolArea = poolArea;
+        this.floors = floors;
+        this.facilityFree = facilityFree;
+    }
+
+//    Villa constructor
+    public Facility(String name, int area, double cost, int maxPeople, int rentTypeId, int facilityTypeId, String standard, String description, double poolArea, int floors) {
+        this.id = id;
+        this.name = name;
+        this.area = area;
+        this.cost = cost;
+        this.maxPeople = maxPeople;
+        this.rentTypeId = rentTypeId;
+        this.facilityTypeId = facilityTypeId;
+        this.standard = standard;
+        this.description = description;
+        this.poolArea = poolArea;
+        this.floors = floors;
+    }
+
+    //    House constructor
+    public Facility(String name, int area, double cost, int maxPeople, int rentTypeId, int facilityTypeId, String standard, String description, int floors) {
+        this.name = name;
+        this.area = area;
+        this.cost = cost;
+        this.maxPeople = maxPeople;
+        this.rentTypeId = rentTypeId;
+        this.facilityTypeId = facilityTypeId;
+        this.standard = standard;
+        this.description = description;
+        this.floors = floors;
+    }
+
+    //    Room constructor
+    public Facility(String name, int area, double cost, int maxPeople, int rentTypeId, int facilityTypeId, String facilityFree) {
+        this.name = name;
+        this.area = area;
+        this.cost = cost;
+        this.maxPeople = maxPeople;
+        this.rentTypeId = rentTypeId;
+        this.facilityTypeId = facilityTypeId;
+        this.facilityFree = facilityFree;
+    }
+
+    public Facility(int id) {
+        this.id = id;
+    }
+
     public int getId() {
         return id;
     }

@@ -10,20 +10,14 @@
 <html>
 <head>
     <title>Trang chủ</title>
-<%--    <link href="/bootstrap/css/bootstrap.min.css">--%>
-
-<%--    <link rel="stylesheet" href="bootstrap520/css/bootstrap.min.css"/>--%>
-<%--    <link rel="stylesheet" href="datatables/css/dataTables.bootstrap5.min.css"/>--%>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-</head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous"></head>
 <body>
 <%--Header--%>
 <div class="header-content">
     <div class="container">
         <div class="row">
             <div class="col-3 align-items-center bestel-logo">
-                <a href="https://furamavietnam.com/vi/" class="header-logo"><img
+                <a href="/furama_resort/home.jsp" class="header-logo"><img
                         src="https://furamavietnam.com/wp-content/uploads/2018/08/logo.png" alt="logo "
                         class="img-fluid" style="margin-top: 20px"></a>
             </div>
@@ -44,7 +38,7 @@
                 <ul id="menu-furama-vi" class="menu navbar-nav w-100 js-main-menu">
                     <li id="nav-menu-item-5006"
                         class="nav-item  menu-item-even menu-item-depth-0 menu-item menu-item-type-post_type menu-item-object-page">
-                        <a href="https://furamavietnam.com/vi/the-resort/" class="nav-link main-menu-link">HOME</a></li>
+                        <a href="/furama_resort/home.jsp" class="nav-link main-menu-link">HOME</a></li>
                     <li id="nav-menu-item-5007"
                         class="nav-item  menu-item-even menu-item-depth-0 menu-item menu-item-type-post_type menu-item-object-page">
                         <a href="https://furamavietnam.com/vi/our-rooms/" class="nav-link main-menu-link">EMPLOYEE</a>
@@ -54,15 +48,15 @@
                         <a href="https://furamavietnam.com/vi/culinary/" class="nav-link main-menu-link">CUSTOMER</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="/facilities" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             SERVICE
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <li><a class="dropdown-item" href="#">VILLA</a></li>
-                            <li><a class="dropdown-item" href="#">HOUSE</a></li>
-                            <li><a class="dropdown-item" href="#">ROOM</a></li>
+                            <li><a class="dropdown-item" href="/facilities">All Facilities</a></li>
                             <li><hr class="dropdown-divider"></li>
-                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                            <li><a class="dropdown-item" href="/facilities?action=villa">VILLA</a></li>
+                            <li><a class="dropdown-item" href="/facilities?action=house">HOUSE</a></li>
+                            <li><a class="dropdown-item" href="/facilities?action=room">ROOM</a></li>
                         </ul>
                     </li>
                     <li id="nav-menu-item-5010"
@@ -87,7 +81,7 @@
         </div>
         <div id="content" class="col-10">
 
-            <h1 style="text-align: center; color: blue">Đây là nội dung</h1>
+            <h1 style="text-align: center; color: blue">Đây là trang chủ</h1>
         </div>
     </div>
 </div>
@@ -102,21 +96,9 @@
 </footer>
 
 </body>
-<script src="jquery/jquery-3.5.1.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-        crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
-        crossorigin="anonymous"></script>
-<script src="datatables/js/jquery.dataTables.min.js"></script>
-<script src="datatables/js/dataTables.bootstrap5.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+
 <script>
     function sendToDeleteModal(id, name) {
         document.getElementById("nameDelete").value = name;

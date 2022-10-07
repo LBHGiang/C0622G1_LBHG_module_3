@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a702135d-53c4-4047-a071-70347465fd4c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../../web_module_3/casestudy/src/main/java/furama_resort/repository/IFacilityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../web_module_3/casestudy/src/main/java/furama_resort/repository/IFacilityRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../web_module_3/casestudy/src/main/java/furama_resort/repository/impl/FacilityRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../../web_module_3/casestudy/src/main/java/furama_resort/repository/impl/FacilityRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../web_module_3/ss11_MVC/product_management(list-modal)/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../web_module_3/ss11_MVC/product_management(list-modal)/.gradle/6.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../web_module_3/ss11_MVC/product_management(list-modal)/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../web_module_3/ss11_MVC/product_management(list-modal)/.gradle/6.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../web_module_3/ss11_MVC/product_management(list-modal)/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../web_module_3/ss11_MVC/product_management(list-modal)/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../web_module_3/ss11_MVC/product_management(list-modal)/out/artifacts/product_management_main_war_exploded/product/edit.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/../../web_module_3/ss11_MVC/product_management(list-modal)/out/artifacts/product_management_main_war_exploded/product/edit.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../web_module_3/ss13_JDBC_transaction/user_manager/.gradle/6.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../web_module_3/ss13_JDBC_transaction/user_manager/.gradle/6.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../web_module_3/ss13_JDBC_transaction/user_manager/.gradle/6.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../web_module_3/ss13_JDBC_transaction/user_manager/.gradle/6.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../web_module_3/ss13_JDBC_transaction/user_manager/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/../../web_module_3/ss13_JDBC_transaction/user_manager/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="2Fjz8vmciYORUPg6tn6sRQNOjPZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../web_module_3/casestudy" />
+    <property name="settings.editor.selected.configurable" value="preferences.applicationServers" />
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a702135d-53c4-4047-a071-70347465fd4c" name="Default Changelist" comment="" />
+      <created>1665020125092</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1665020125092</updated>
+      <workItem from="1665020126771" duration="25000" />
+    </task>
+    <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="410" y="59" key="FileChooserDialogImpl" timestamp="1665020150630">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="410" y="59" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1665020150630" />
+  </component>
+</project>
