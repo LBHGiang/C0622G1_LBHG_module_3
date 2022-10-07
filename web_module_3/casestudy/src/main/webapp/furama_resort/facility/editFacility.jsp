@@ -85,10 +85,8 @@
     <div class="row" style="width: 100%; padding: 0; margin: 0;">
         <div id="left" class="col-2">
             <ul id="ul_left" style="list-style-type: none; margin-left: -25px; margin-top: 50px">
-                <li><a href="/facilities?" class="btn btn-primary" role="button">Quay lại Dịch vụ</a></li>
-                <li><a href="furama_resort/home.jsp" class="btn btn-primary" role="button">Quay lại Trang chủ</a></li>
-                <li><i class="fa-regular fa-cart-shopping-fast"></i><a href="#">Item 4</a></li>
-                <li><i class="fa-thin fa-balloons"></i><a href="#">Item 5</a></li>
+                <li style="margin: 10px"><a href="/facilities?" class="btn btn-primary" role="button">Quay lại Dịch vụ</a></li>
+                <li style="margin: 10px"><a href="furama_resort/home.jsp" class="btn btn-primary" role="button">Quay lại Trang chủ</a></li>
             </ul>
         </div>
         <div id="content" class="col-10">

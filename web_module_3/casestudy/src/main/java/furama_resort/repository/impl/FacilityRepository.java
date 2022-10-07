@@ -22,11 +22,12 @@ public class FacilityRepository implements IFacilityRepository {
     private static final String SELECT_ALL_ROOM = "select * from facility where is_delete = 0 and facility_type_id = 3;";
     private static final String SELECT_ALL_FACILITY_ORDER_BY_NAME = "select * from facility where is_delete = 0 order by name;";
     //    private static final String SELECT_FACILITY_BY_COUNTRY = "select * from facilitys where country like ?;";
-    private static final String DELETE_FACILITY = "delete from facility where id = ?;";
+    private static final String DELETE_FACILITY = "update facility set is_delete = 1 where id = ?;";
     private static final String UPDATE_FACILITY = "update facility set  `name`= ? , area= ? , cost= ? , max_people= ? , standard_room= ? , description_other_convenience= ?, pool_area= ? , number_of_floors= ? , facility_free= ? ,rent_type_id= ? ,facility_type_id =? where id = ?;";
     private static final String SELECT_RENT_TYPE = "SELECT * FROM data_furama.rent_type where is_delete = 0;";
     private static final String SELECT_SERVICE_TYPE = "SELECT * FROM data_furama.facility_type where is_delete=0;";
-    private static final String SEARCH_NAME_COST_TYPE = "SELECT * FROM data_furama.facility where is_delete=0 and name like ? and cost < ? and facility_type_id in (?,?,?) ;";
+    private static final String SEARCH_NAME_COST_TYPE = "SELECT * FROM data_furama.facility where is_delete=0 and name like ? and cost < ? and facility_type_id = ? ;";
+    private static final String SEARCH_NAME_COST_ALL_TYPE = "SELECT * FROM data_furama.facility where is_delete=0 and name like ? and cost < ?";
 
 
     public List<Facility> findFacilityByType(String query) {
@@ -95,8 +96,7 @@ public class FacilityRepository implements IFacilityRepository {
             preparedStatement.setInt(10, facility.getRentTypeId());
             preparedStatement.setInt(11, facility.getFacilityTypeId());
 
-           int a = preparedStatement.executeUpdate();
-            System.out.println(a);
+           preparedStatement.executeUpdate();
         } catch (SQLException e) {
             printSQLException(e);
         }
@@ -169,15 +169,46 @@ public class FacilityRepository implements IFacilityRepository {
     }
 
     @Override
-    public List<Facility> searchFacility(String searchName, double searchCost, int[] searchServiceTypeId) {
+    public List<Facility> searchFacility(String searchName, double searchCost, int searchServiceTypeId) {
         List<Facility> facilities = new ArrayList<>();
         try (Connection connection = getConnection();
              PreparedStatement preparedStatement = connection.prepareStatement(SEARCH_NAME_COST_TYPE);) {
             preparedStatement.setString(1, searchName);
             preparedStatement.setDouble(2, searchCost);
-            preparedStatement.setInt(3, searchServiceTypeId[0]);
-            preparedStatement.setInt(4, searchServiceTypeId[1]);
-            preparedStatement.setInt(5, searchServiceTypeId[2]);
+            preparedStatement.setDouble(3, searchServiceTypeId);
+
+            ResultSet rs = preparedStatement.executeQuery();
+            while (rs.next()) {
+                int id = rs.getInt("id");
+                int area = rs.getInt("area");
+                int maxPeople = rs.getInt("max_people");
+                int floors = rs.getInt("number_of_floors");
+                int rentTypeId = rs.getInt("rent_type_id");
+                int facilityTypeId = rs.getInt("facility_type_id");
+
+                double cost = rs.getDouble("cost");
+                double poolArea = rs.getDouble("pool_area");
+
+                String name = rs.getString("name");
+                String description = rs.getString("description_other_convenience");
+                String facilityFree = rs.getString("facility_free");
+                String standard = rs.getString("standard_room");
+
+                facilities.add(new Facility(id, name, area, cost, maxPeople, rentTypeId, facilityTypeId, standard, description, poolArea, floors, facilityFree));
+            }
+        } catch (SQLException e) {
+            printSQLException(e);
+        }
+        return facilities;
+    }
+
+    public List<Facility> searchFacility(String searchName, double searchCost) {
+        List<Facility> facilities = new ArrayList<>();
+        try (Connection connection = getConnection();
+             PreparedStatement preparedStatement = connection.prepareStatement(SEARCH_NAME_COST_ALL_TYPE);) {
+            preparedStatement.setString(1, searchName);
+            preparedStatement.setDouble(2, searchCost);
+
             ResultSet rs = preparedStatement.executeQuery();
             while (rs.next()) {
                 int id = rs.getInt("id");

@@ -21,5 +21,7 @@ public interface IFacilityRepository {
 
     void remove(int id);
 
-    List<Facility> searchFacility(String searchName, double cost, int[] serviceTypeId);
+    List<Facility> searchFacility(String searchName, double cost, int serviceTypeId);
+
+    List<Facility> searchFacility(String searchName, double cost);
 }

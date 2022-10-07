@@ -23,4 +23,6 @@ public interface IFacilityService {
     void remove(int id);
 
     List<Facility> findFacility(String name, double cost, int serviceTypeId);
+
+    List<Facility> findFacility(String name, double cost);
 }

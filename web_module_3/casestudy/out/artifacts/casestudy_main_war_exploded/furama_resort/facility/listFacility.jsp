@@ -14,6 +14,13 @@
     <%--    Link bootstrap 5.1 có navbar dropdown--%>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<style>
+    body {
+        background: url("../image/bg_img.jpg") no-repeat center/cover;
+        height: 100vh;
+        width: 100vw;
+    }
+</style>
 </head>
 <%--2 link phân trang--%>
 <link rel="stylesheet" href="bootstrap520/css/bootstrap.min.css"/>
@@ -41,10 +48,10 @@
 
 <%--Navbar--%>
 <div class="header-nav js-header-nav sticky bg-light">
-    <div class="container">
+    <div class="container-fluid p-3">
         <nav class="navbar navbar-expand-lg">
             <div class="navbar-collapse">
-                <ul id="menu-furama-vi" class="menu navbar-nav w-100 js-main-menu">
+                <ul id="menu-furama-vi" class="menu navbar-nav js-main-menu">
                     <li id="nav-menu-item-5006"
                         class="nav-item  menu-item-even menu-item-depth-0 menu-item menu-item-type-post_type menu-item-object-page">
                         <a href="/furama_resort/home.jsp" class="nav-link main-menu-link">HOME</a></li>
@@ -77,10 +84,11 @@
                            class="nav-link main-menu-link">CONTRACT</a>
                     </li>
                 </ul>
-                <form class="d-flex" action="/facilities?action=find" method="post">
+                <form class="d-flex m-0 p-0 align-items-center justify-content-end" style="flex: 1" action="/facilities?action=find" method="post">
                     <input type="search" placeholder="Tìm theo tên" aria-label="Search" name="name">
-                    <span>Giá <</span><input type="number" aria-label="Search" name="cost" value="100000000">
-                    <select name="serviceType">
+                    <span class="mx-3">Giá <</span>
+                    <input type="number" aria-label="Search" name="cost" value="100000000">
+                    <select name="serviceType" class="mx-3">
                         <option value="0">Tất cả dịch vụ</option>
                         <option value="1">Villa</option>
                         <option value="2">House</option>
@@ -101,8 +109,6 @@
                 <li><a href="/facilities?action=create" class="btn btn-primary" role="button">Thêm mới sản phẩm</a></li>
                 <%--                <li><a href="/faciliies?action=create" class="btn btn-primary" role="button">Thêm mới sản phẩm</a></li>--%>
                 <%--                <li><a href="/faciliies?action=create" class="btn btn-primary" role="button">Thêm mới sản phẩm</a></li>--%>
-                <li><i class="fa-regular fa-cart-shopping-fast"></i><a href="#">Item 4</a></li>
-                <li><i class="fa-thin fa-balloons"></i><a href="#">Item 5</a></li>
             </ul>
         </div>
         <div id="content" class="col-10">
@@ -177,7 +183,7 @@
                             <%--                            </button>--%>
                             <%--                        </td>--%>
                         <td><!-- Button trigger modal -->
-                            <button type="button" onclick="sendToDeleteModal('${product.id}','${product.name}')"
+                            <button type="button" onclick="sendToDeleteModal('${facility.id}','${facility.name}')"
                                     class="btn btn-danger" data-bs-toggle="modal"
                                     data-bs-target="#deleteModal">
                                 Xóa
@@ -291,9 +297,11 @@
     });
 
     function sendToDeleteModal(id, name) {
-        document.getElementById("nameDelete").value = name;
-        console.log(id);
-        document.getElementById("idDelete").value = id;
+        // document.getElementById("nameDelete").value = name;
+        $("#nameDelete").text(name);
+        // $("#idDelete").text(id);
+        $("#idDelete").val(id);
+        // document.getElementById("idDelete").value = id;
     }
 
     function sendToEditModal(id, name, price, description, producer) {

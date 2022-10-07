@@ -52,13 +52,12 @@ public class FacilityService implements IFacilityService {
 
     @Override
     public List<Facility> findFacility(String name, double cost, int serviceTypeId) {
-        int[] serviceTypeIds;
-        if (serviceTypeId == 0) {
-            serviceTypeIds = new int[] {1,2,3};
-        } else {
-            serviceTypeIds = new int[] {serviceTypeId,serviceTypeId,serviceTypeId};
-        }
-        return iFacilityRepository.searchFacility("%" + name + "%", cost, serviceTypeIds);
+        return iFacilityRepository.searchFacility("%" + name + "%", cost, serviceTypeId);
     }
+
+    public List<Facility> findFacility(String name, double cost) {
+        return iFacilityRepository.searchFacility("%" + name + "%", cost);
+    }
+
 
 }

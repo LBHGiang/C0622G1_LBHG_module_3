@@ -251,13 +251,13 @@ public class FacilityServlet extends HttpServlet {
             int facilityTypeId = Integer.parseInt(request.getParameter("facilityTypeId"));
             switch (facilityTypeId) {
                 case 1:
-                    updateVilla(request,facility);
+                    updateVilla(request, facility);
                     break;
                 case 2:
-                    updateHouse(request,facility);
+                    updateHouse(request, facility);
                     break;
                 case 3:
-                    updateRoom(request,facility);
+                    updateRoom(request, facility);
                     break;
                 default:
                     facility = null;
@@ -380,7 +380,11 @@ public class FacilityServlet extends HttpServlet {
         String name = request.getParameter("name");
         double cost = Double.parseDouble(request.getParameter("cost"));
         int serviceTypeId = Integer.parseInt(request.getParameter("serviceType"));
-        facilities = this.facilityService.findFacility(name, cost,serviceTypeId);
+        if (serviceTypeId == 0) {
+            facilities = this.facilityService.findFacility(name, cost);
+        } else {
+            facilities = this.facilityService.findFacility(name, cost, serviceTypeId);
+        }
 
         RequestDispatcher dispatcher = request.getRequestDispatcher("furama_resort\\facility\\listFacility.jsp");
         request.setAttribute("facilities", facilities);
