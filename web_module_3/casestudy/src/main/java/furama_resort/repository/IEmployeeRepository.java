@@ -15,7 +15,7 @@ public interface IEmployeeRepository {
 
     void remove(int id);
 
-    List<Employee> searchEmployee(String searchName, int divisionId);
+    List<Employee> searchEmployee(String searchName, int searchCustomerTypeId);
 
     List<Employee> searchEmployee(String searchName);
 }

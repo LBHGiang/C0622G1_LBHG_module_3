@@ -45,19 +45,22 @@
                         <a href="/furama_resort/home.jsp" class="nav-link main-menu-link">HOME</a></li>
                     <li id="nav-menu-item-5007"
                         class="nav-item  menu-item-even menu-item-depth-0 menu-item menu-item-type-post_type menu-item-object-page">
-                        <a href="https://furamavietnam.com/vi/our-rooms/" class="nav-link main-menu-link">EMPLOYEE</a>
+                        <a href="/employees" class="nav-link main-menu-link">EMPLOYEE</a>
                     </li>
                     <li id="nav-menu-item-5008"
                         class="nav-item  menu-item-even menu-item-depth-0 menu-item menu-item-type-post_type menu-item-object-page">
-                        <a href="https://furamavietnam.com/vi/culinary/" class="nav-link main-menu-link">CUSTOMER</a>
+                        <a href="/customers" class="nav-link main-menu-link">CUSTOMER</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="/facilities" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="/facilities" id="navbarDropdown" role="button"
+                           data-bs-toggle="dropdown" aria-expanded="false">
                             SERVICE
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="/facilities">All Facilities</a></li>
-                            <li><hr class="dropdown-divider"></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
                             <li><a class="dropdown-item" href="/facilities?action=villa">VILLA</a></li>
                             <li><a class="dropdown-item" href="/facilities?action=house">HOUSE</a></li>
                             <li><a class="dropdown-item" href="/facilities?action=room">ROOM</a></li>
@@ -65,14 +68,10 @@
                     </li>
                     <li id="nav-menu-item-5010"
                         class="nav-item  menu-item-even menu-item-depth-0 menu-item menu-item-type-post_type menu-item-object-page">
-                        <a href="https://furamavietnam.com/vi/spa-and-fitness/"
+                        <a href="/contracts"
                            class="nav-link main-menu-link">CONTRACT</a>
                     </li>
                 </ul>
-                <form class="d-flex m-0" action="/products?action=find" method="post">
-                    <input type="search" placeholder="Tìm kiếm" aria-label="Search" name="name" id="searchName">
-                    <input type="submit" value="Tìm kiếm" class="btn btn-outline-success">
-                </form>
             </div>
         </nav>
     </div>
@@ -82,86 +81,74 @@
     <div class="row" style="width: 100%; padding: 0; margin: 0;">
         <div id="left" class="col-2">
             <ul id="ul_left" style="list-style-type: none; margin-left: -25px; margin-top: 50px">
-                <li style="margin: 10px"><a href="/facilities" class="btn btn-primary" role="button">Quay lại Dịch vụ</a></li>
-                <li style="margin: 10px"><a href="furama_resort\home.jsp" class="btn btn-primary" role="button">Quay lại Trang chủ</a></li>
+                <li style="margin: 10px"><a href="/customers" class="btn btn-primary" role="button">Quay lại Khách hàng
+                    </a></li>
+                <li style="margin: 10px"><a href="furama_resort\home.jsp" class="btn btn-primary" role="button">Quay lại
+                    Trang chủ</a></li>
             </ul>
         </div>
         <div id="content" class="col-10">
             <p>
                 <c:if test="${message != null}">
-                    <h2 style="color: green">${message}</h2>
-                </c:if>
+            <h2 style="color: green">${message}</h2>
+            </c:if>
             </p>
-            <h1 style="text-align: center; color: blue">Thêm mới dịch vụ</h1>
-            <form action="/facilities?action=create" method="post">
-                <fieldset>
+            <h1 style="text-align: center; color: blue">Thêm mới Khách hàng</h1>
+            <form action="/customers?action=create" method="post">
+                <fieldset style="width: 50%; margin-left: 25%">
                     <legend>Nhập thông tin</legend>
-                    <table>
+                    <table class="table table-striped table-bordered" style="width: 100%">
                         <tr>
                             <td>Tên</td>
-                            <td><input type="text" name="name" id="name"></td>
+                            <td><input type="text" name="name"></td>
                         </tr>
                         <tr>
-                            <td>Kiểu dịch vụ</td>
-                            <td><select name="serviceType" onchange="openInput(this.value)">
-                                <option>--Chọn Kiểu--</option>
-                                <option value="1">Villa</option>
-                                <option value="2">House</option>
-                                <option value="3">Room</option>
+                            <td>Ngày sinh</td>
+                            <td><input type="text" name="birthday"></td>
+                        </tr>
+                        <tr>
+                            <td>Giới tính</td>
+                            <td><select name="gender">
+                                <option value="0">Nam</option>
+                                <option value="1">Nữ</option>
                             </select>
                             </td>
                         </tr>
                         <tr>
-                            <td>Diện tích</td>
-                            <td><input type="text" name="area" id="area"></td>
+                            <td>CMND</td>
+                            <td><input type="text" name="idCard"></td>
                         </tr>
                         <tr>
-                            <td>Giá</td>
-                            <td><input type="text" name="cost" id="cost"></td>
+                            <td>SĐT</td>
+                            <td><input type="text" name="phoneNumber"></td>
                         </tr>
                         <tr>
-                            <td>Số người tối đa</td>
-                            <td><input type="text" name="maxPeople" id="maxPeople"></td>
+                            <td>Email</td>
+                            <td><input type="text" name="email"></td>
                         </tr>
                         <tr>
-                            <td>Kiểu thuê</td>
-                            <td><select name="rentType">
-                                <option value="1">Year</option>
-                                <option value="2">Month</option>
-                                <option value="3">Day</option>
-                                <option value="4">Hour</option>
+                            <td>Địa chỉ</td>
+                            <td><input type="text" name="address"></td>
+                        </tr>
+                        <tr>
+                            <td>Loại khách</td>
+                            <td><select name="customerTypeId">
+                                <option value="1">Diamond</option>
+                                <option value="2">Platinium</option>
+                                <option value="3">Gold</option>
+                                <option value="4">Silver</option>
+                                <option value="5">Member</option>
                             </select>
                             </td>
                         </tr>
                         <tr>
-                            <td>Tiêu chuẩn phòng</td>
-                            <td><input type="text" name="standard" id="standard" disabled="disabled"></td>
-                        </tr>
-                        <tr>
-                            <td>Mô tả</td>
-                            <td><input type="text" name="description" id="description" disabled="disabled"></td>
-                        </tr>
-                        <tr>
-                            <td>Diện tích hồ bơi</td>
-                            <td><input type="text" name="poolArea" id="poolArea" disabled="disabled"></td>
-                        </tr>
-                        <tr>
-                            <td>Số tầng</td>
-                            <td><input type="text" name="floors" id="floors" disabled="disabled"></td>
-                        </tr>
-                        <tr>
-                            <td>Dịch vụ miễn phí</td>
-                            <td><input type="text" name="freeService" id="freeService" disabled="disabled"></td>
-                        </tr>
-                        <tr>
-                            <td><a href="/facilities?action=create" class="btn btn-primary" role="button">Reset</a></td>
+                            <td><a href="/customers?action=create" class="btn btn-primary" role="button">Xóa tất cả dữ
+                                liệu</a></td>
                             <td><input type="submit" value="Thêm mới" class="btn btn-primary"></td>
                         </tr>
                     </table>
                 </fieldset>
             </form>
-
-
         </div>
     </div>
 </div>
@@ -169,7 +156,7 @@
 <footer class="bd-footer py-1 mt-5 bg-light">
     <div class="container py-3">
         <div class="row">
-            Đây là footer
+            Cám ơn bạn đã sử dụng dịch vụ của chúng tôi
         </div>
     </div>
 </footer>
@@ -193,7 +180,7 @@
     function openInput(value) {
         for (let element of inputId) {
 
-            document.getElementById(element).disabled = !facility[parseInt(value)-1].includes(element);
+            document.getElementById(element).disabled = !facility[parseInt(value) - 1].includes(element);
         }
     }
 </script>

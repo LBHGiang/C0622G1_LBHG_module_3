@@ -169,7 +169,7 @@
 <footer class="bd-footer py-1 mt-5 bg-light">
     <div class="container py-3">
         <div class="row">
-            Đây là footer
+            Cám ơn bạn đã sử dụng dịch vụ của chúng tôi
         </div>
     </div>
 </footer>

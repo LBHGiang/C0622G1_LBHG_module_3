@@ -45,11 +45,11 @@
                         <a href="/furama_resort/home.jsp" class="nav-link main-menu-link">HOME</a></li>
                     <li id="nav-menu-item-5007"
                         class="nav-item  menu-item-even menu-item-depth-0 menu-item menu-item-type-post_type menu-item-object-page">
-                        <a href="https://furamavietnam.com/vi/our-rooms/" class="nav-link main-menu-link">EMPLOYEE</a>
+                        <a href="/employees" class="nav-link main-menu-link">EMPLOYEE</a>
                     </li>
                     <li id="nav-menu-item-5008"
                         class="nav-item  menu-item-even menu-item-depth-0 menu-item menu-item-type-post_type menu-item-object-page">
-                        <a href="https://furamavietnam.com/vi/culinary/" class="nav-link main-menu-link">CUSTOMER</a>
+                        <a href="/customers" class="nav-link main-menu-link">CUSTOMER</a>
                     </li>
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="/facilities" id="navbarDropdown" role="button"
@@ -68,7 +68,7 @@
                     </li>
                     <li id="nav-menu-item-5010"
                         class="nav-item  menu-item-even menu-item-depth-0 menu-item menu-item-type-post_type menu-item-object-page">
-                        <a href="https://furamavietnam.com/vi/spa-and-fitness/"
+                        <a href="/contracts"
                            class="nav-link main-menu-link">CONTRACT</a>
                     </li>
                 </ul>
