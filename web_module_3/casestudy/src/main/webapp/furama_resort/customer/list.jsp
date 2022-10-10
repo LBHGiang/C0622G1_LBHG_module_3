@@ -34,8 +34,8 @@
         <div class="row">
             <div class="col-3 align-items-center bestel-logo">
                 <a href="/furama_resort/home.jsp" class="header-logo"><img
-                        src="https://furamavietnam.com/wp-content/uploads/2018/08/logo.png" alt="logo "
-                        class="img-fluid" style="margin-top: 20px"></a>
+                        src="/image/logo_img.png" alt="logo "
+                        class="img-fluid" style="margin: 20px"></a>
             </div>
             <div class="col-7 align-items-center bestel-logo">
             </div>

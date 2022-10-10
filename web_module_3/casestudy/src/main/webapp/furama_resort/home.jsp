@@ -15,7 +15,7 @@
 </head>
 <style>
     body {
-        background: url("image/bg_img.jpg") no-repeat center/cover;
+        background: url("/image/bg_img.jpg") no-repeat center/cover;
         height: 100vh;
         width: 100vw;
     }
@@ -27,8 +27,8 @@
         <div class="row">
             <div class="col-3 align-items-center bestel-logo">
                 <a href="/furama_resort/home.jsp" class="header-logo"><img
-                        src="https://furamavietnam.com/wp-content/uploads/2018/08/logo.png" alt="logo "
-                        class="img-fluid" style="margin-top: 20px"></a>
+                        src="/image/logo_img.png" alt="logo "
+                        class="img-fluid" style="margin: 20px"></a>
             </div>
             <div class="col-7 align-items-center bestel-logo">
             </div>
@@ -85,12 +85,7 @@
 <%--Body: LeftSide and content--%>
 <div class="container-fluid">
     <div class="row" style="width: 100%; padding: 0; margin: 0;">
-        <div id="left" class="col-2">
-        </div>
-        <div id="content" class="col-10">
-
-            <h1 style="text-align: center; color: blue">Welcome!</h1>
-        </div>
+            <img src="/image/bg_codegym_img.jpg" class="img-thumbnail" alt="..." style="width: 100%;height: 100%">
     </div>
 </div>
 
