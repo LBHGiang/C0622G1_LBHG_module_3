@@ -13,6 +13,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
+import java.util.Map;
 
 @WebServlet(name = "EmployeeServlet", urlPatterns = "/employees")
 public class EmployeeServlet extends HttpServlet {
@@ -111,9 +112,18 @@ public class EmployeeServlet extends HttpServlet {
         int divisionId = Integer.parseInt(request.getParameter("divisionId"));
         Employee employee = new Employee(name, birthday, idCard, salary, phoneNumber, email, address, positionId, educationDegreeId, divisionId);
 
-        this.employeeService.save(employee);
+        Map<String,String> error = this.employeeService.save(employee);
+        if (error.size() != 0) {
+            request.setAttribute("message", "Thêm mới thất bại");
+            request.setAttribute("error", error);
+            request.setAttribute("employee", employee);
+            request.setAttribute("position", this.employeeRepository.findPosition());
+            request.setAttribute("division", this.employeeRepository.findDivision());
+            request.setAttribute("education", this.employeeRepository.findEducation());
+        } else {
+            request.setAttribute("message", "Thêm mới thành công!");
+        }
         RequestDispatcher dispatcher = request.getRequestDispatcher("furama_resort\\employee\\create.jsp");
-        request.setAttribute("message", "Thêm mới thành công!");
         try {
             dispatcher.forward(request, response);
         } catch (ServletException e) {

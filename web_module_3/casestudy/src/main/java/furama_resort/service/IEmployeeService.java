@@ -3,11 +3,12 @@ package furama_resort.service;
 import furama_resort.model.Employee;
 
 import java.util.List;
+import java.util.Map;
 
 public interface IEmployeeService {
     List<Employee> findAll();
 
-    void save(Employee employee);
+    Map<String,String> save(Employee employee);
 
     Employee findById(int id);
 

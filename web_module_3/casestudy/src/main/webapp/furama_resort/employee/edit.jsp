@@ -14,6 +14,14 @@
     <%--    <link href="/bootstrap/css/bootstrap.min.css">--%>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+        body {
+            background: url("../../image/bg_img.jpg") no-repeat center/cover;
+            height: 100vh;
+            width: 100vw;
+        }
+    </style>
+
 </head>
 <body onload="openInput(${facility.facilityTypeId})">
 <%--Header--%>
@@ -111,7 +119,8 @@
                         </tr>
                         <tr>
                             <td>SĐT:</td>
-                            <td><input type="text" name="phoneNumber" id="phoneNumber" value="${employee.phoneNumber}"></td>
+                            <td><input type="text" name="phoneNumber" id="phoneNumber" value="${employee.phoneNumber}">
+                            </td>
                         </tr>
                         <tr>
                             <td>Email:</td>
@@ -167,12 +176,8 @@
     </div>
 </div>
 
-<footer class="bd-footer py-1 mt-5 bg-light">
-    <div class="container py-3">
-        <div class="row">
-            Cám ơn bạn đã sử dụng dịch vụ của chúng tôi
-        </div>
-    </div>
+<footer class="bd-footer py-1 mt-5">
+    <h3 style="text-align: center">Cám ơn bạn đã sử dụng dịch vụ của chúng tôi</h3>
 </footer>
 
 </body>

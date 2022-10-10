@@ -14,6 +14,15 @@
     <%--    Link bootstrap 5.1 có navbar dropdown--%>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <style>
+        body {
+            background: url("../../image/bg_img.jpg") no-repeat center/cover;
+            height: 100vh;
+            width: 100vw;
+            margin-bottom: 0;
+        }
+    </style>
+
 </head>
 <%--2 link phân trang--%>
 <link rel="stylesheet" href="bootstrap520/css/bootstrap.min.css"/>
@@ -133,7 +142,6 @@
                 <tr>
                     <th>STT</th>
                     <th>Tên</th>
-                    <th>Chi tiết</th>
                     <th>CMND</th>
                     <th>Lương</th>
                     <th>SĐT</th>
@@ -149,7 +157,6 @@
                     <tr>
                         <td>${status.count}<input type="hidden" name="id" value="${employee.id}"></td>
                             <%--                        <td><a href="/employees?action=view&id=${employee.id}">${employee.name}</a></td>--%>
-                        <td>${employee.name}</td>
                         <td>
                             <button type="button"
                                     onclick="sendToViewModal(
@@ -163,9 +170,9 @@
                                             '${position.get(employee.positionId)}',
                                             '${education.get(employee.educationDegreeId)}',
                                             '${division.get(employee.divisionId)}')"
-                                    class="btn btn-danger" data-bs-toggle="modal"
+                                    class="" style="border: none; background: transparent; outline: none" data-bs-toggle="modal"
                                     data-bs-target="#viewModal">
-                                Chi tiết
+                                    <span class="text-decoration-underline">${employee.name}</span>
                             </button>
                         </td>
                         <td>${employee.idCard}</td>
@@ -287,12 +294,8 @@
 </div>
 
 <%--Footer--%>
-<footer class="bd-footer py-1 mt-5 bg-light">
-    <div class="container py-3">
-        <div class="row">
-            Cám ơn bạn đã sử dụng dịch vụ của chúng tôi
-        </div>
-    </div>
+<footer class="bd-footer py-1 mt-5">
+            <h3 style="text-align: center">Cám ơn bạn đã sử dụng dịch vụ của chúng tôi</h3>
 </footer>
 </body>
 <%--2 script bootstrap 5.1--%>
