@@ -8,7 +8,7 @@ import furama_resort.service.IEmployeeService;
 import java.util.List;
 
 public class EmployeeService implements IEmployeeService {
-    IEmployeeRepository iEmployeeRepository = new EmployeeRepository();
+    private IEmployeeRepository iEmployeeRepository = new EmployeeRepository();
 
     @Override
     public List<Employee> findAll() {

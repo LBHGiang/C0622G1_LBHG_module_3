@@ -8,7 +8,7 @@ import furama_resort.service.IFacilityService;
 import java.util.List;
 
 public class FacilityService implements IFacilityService {
-    IFacilityRepository iFacilityRepository = new FacilityRepository();
+    private IFacilityRepository iFacilityRepository = new FacilityRepository();
 
     @Override
     public List<Facility> findAll() {

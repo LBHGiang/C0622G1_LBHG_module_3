@@ -8,7 +8,7 @@ import furama_resort.service.ICustomerService;
 import java.util.List;
 
 public class CustomerService implements ICustomerService {
-    ICustomerRepository iCustomerRepository = new CustomerRepository();
+    private ICustomerRepository iCustomerRepository = new CustomerRepository();
 
     @Override
     public List<Customer> findAll() {
